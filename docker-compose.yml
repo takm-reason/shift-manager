@@ -1,0 +1,25 @@
+version: '2'
+services:
+  mysql:
+    build: ./mysql
+    environment:
+      TZ: "Asia/Tokyo"
+      MYSQL_ROOT_PASSWORD: pass
+    volumes:
+      - db:/var/lib/mysql
+  express:
+    build: ./express
+    environment:
+      TZ: "Asia/Tokyo"
+      NODE_ENV: development
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./express:/usr/src/express
+      - node_modules:/usr/src/express/node_modules
+    depends_on:
+      - mysql
+volumes:
+  db:
+  node_modules:  
+  

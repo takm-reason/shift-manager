@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  div(class="panel panel-default")
+    #calendarform
+    script(src="./dist/calendarform.js")
+    each date in sleepdate
+      script= `store.onCheckDate('${date.id}', '${date.date}')`

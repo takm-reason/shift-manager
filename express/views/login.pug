@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h3 #{action} book
+  form(action="/login" method="POST")
+    .form-group
+      label(for="username") username
+      input.form-control(type="text", name="username", id="username")
+    .form-group
+      label(for="password") password
+      input.form-control(type="password", name="password", id="password")
+    button.btn.btn-success(type="submit") login

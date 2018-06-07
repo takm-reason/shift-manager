@@ -1,0 +1,12 @@
+{
+    "ignore": [
+        "node_modules/*",
+        "public/*",
+        "webpack.config.js"
+    ],
+    "events": {
+        "restart": "webpack"
+    },
+    "ext": "js, jsx",
+    "delay": "1"
+}

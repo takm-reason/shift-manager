@@ -1,0 +1,6 @@
+{
+    "user": "root",
+    "password": "pass",
+    "database": "bookshelf",
+    "host": "mysql"
+}
