@@ -23,12 +23,16 @@ export default class CalendarFormModel {
 
   @action
   nextMonth = () => {
-    this.displayMonth(1);
+    if (this.month.weeks[this.month.weeks.length - 1].hidden) {
+      this.displayMonth(1);
+    }
   }
 
   @action
   prevMonth = () => {
-    this.displayMonth(-1);
+    if (this.month.weeks[0].hidden) {
+      this.displayMonth(-1);
+    }
   }
 
   @action
