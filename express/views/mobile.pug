@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  .container-fluid
+    p mobile
+    div(class="panel panel-default")
+      #calendarform
+      script(src="./dist/calendarform.js")
+      each date in sleepdate
+        script= `store.onCheckDate('${date.id}', '${date.date}')`
+    
