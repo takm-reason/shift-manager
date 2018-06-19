@@ -28,6 +28,11 @@ const nextMonth = (date) => {
   return new Date(date.setMonth(date.getMonth() + 1));
 };
 
+// 引数の1年後を返す
+const nextYear = (date) => {
+  return new Date(date.setFullYear(date.getFullYear() + 1));
+};
+
 // 引数の前月曜日を返す
 const prevMonday = (date) => {
   if (date.getDay() == 1) {
@@ -57,9 +62,9 @@ const addNextDay = (date, lastDay) => {
   );
 };
 
-// 引数の日のfirstMondayからlastMondayまでの7日ごとの配列を返す
+// 引数の日のfirstMondayから一年後のlastMondayofthemonthまでの7日ごとの配列を返す
 const mondays = (date) => {
-  return addNextDay([firstMonday(date)], lastMonday(date));
+  return addNextDay([firstMonday(date)], lastMonday(nextYear(new Date(date))));
 };
 
 const weekModel = (date) => {
@@ -87,6 +92,13 @@ export default class MonthModel {
   onCheckDate(sleepId, sleepDate) {
     this.weeks.map((week) => {
       week.onCheckDate(sleepId, sleepDate);
+    });
+  }
+
+  @action
+  displayMonth(date) {
+    this.weeks.map((week) => {
+      week.displayMonth(date);
     });
   }
 

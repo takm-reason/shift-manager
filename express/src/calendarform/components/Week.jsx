@@ -8,7 +8,7 @@ import Date from './Date';
 class Week extends React.Component {
   render() {
     return (
-      <tr hidden={false}>
+      <tr hidden={this.props.week.hidden}>
         {this.props.week.dates.map((date) => (
           <Date date={date} key={date.id}/>
         ))}

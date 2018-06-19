@@ -12,9 +12,17 @@ class CalendarForm extends React.Component {
         <table className="table">
           <thead>
             <tr>
-              <th className="text-center" colSpan="7">{
+              <th
+                className="text-center"
+                onClick={this.props.store.prevMonth}
+              >prev</th>
+              <th className="text-center" colSpan="5">{
                 this.props.store.date.getMonth() + 1
               }月</th>
+              <th
+                className="text-center"
+                onClick={this.props.store.nextMonth}
+              >next</th>
             </tr>
             <tr>
               <th className="text-center">月</th>
