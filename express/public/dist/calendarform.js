@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a9ff8a90fa4e5a102ed7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0c903b1f754eb42dda48"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -964,7 +964,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(0);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _mobxReact = __webpack_require__(5);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Date = (0, _mobxReact.observer)(function (_ref) {\n  var date = _ref.date;\n  return _react2.default.createElement(\n    'td',\n    {\n      className: 'text-center',\n      onClick: function onClick() {\n        return date.checked = !date.checked;\n      },\n      style: {\n        backgroundColor: date.backgroundColor,\n        color: date.color\n      }\n    },\n    _react2.default.createElement('input', {\n      className: 'sr-only',\n      type: 'checkbox',\n      name: date.name,\n      value: date.value,\n      checked: date.checked\n    }),\n    date.text\n  );\n});\n\nexports.default = Date;\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/calendarform/components/Date.jsx\n// module id = 34\n// module chunks = 0\n\n//# sourceURL=webpack:///./src/calendarform/components/Date.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(0);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _mobxReact = __webpack_require__(5);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Date = (0, _mobxReact.observer)(function (_ref) {\n  var date = _ref.date;\n  return _react2.default.createElement(\n    'td',\n    {\n      onClick: function onClick() {\n        return date.checked = !date.checked;\n      },\n      style: {\n        textAlign: 'center',\n        verticalAlign: 'middle',\n        backgroundColor: date.backgroundColor,\n        color: date.color,\n        height: '80px'\n      }\n    },\n    _react2.default.createElement('input', {\n      className: 'sr-only',\n      type: 'checkbox',\n      name: date.name,\n      value: date.value,\n      checked: date.checked\n    }),\n    date.text\n  );\n});\n\nexports.default = Date;\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/calendarform/components/Date.jsx\n// module id = 34\n// module chunks = 0\n\n//# sourceURL=webpack:///./src/calendarform/components/Date.jsx?");
 
 /***/ }),
 /* 35 */
