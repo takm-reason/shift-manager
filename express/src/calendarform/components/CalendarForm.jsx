@@ -9,20 +9,22 @@ class CalendarForm extends React.Component {
   render() {
     return (
       <form action="/" method="POST">
-        <table className="table">
+        <table className="table" style={{tableLayout: 'fixed'}}>
           <thead>
             <tr>
               <th
                 className="text-center"
+                colSpan="3"
                 onClick={this.props.store.prevMonth}
-              >prev</th>
-              <th className="text-center" colSpan="5">{
+              >&lt;&lt;prev</th>
+              <th className="text-center">{
                 this.props.store.date.getMonth() + 1
               }月</th>
               <th
                 className="text-center"
+                colSpan="3"
                 onClick={this.props.store.nextMonth}
-              >next</th>
+              >next&gt;&gt;</th>
             </tr>
             <tr>
               <th className="text-center">月</th>
