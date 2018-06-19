@@ -17,9 +17,10 @@ class CalendarForm extends React.Component {
                 colSpan="3"
                 onClick={this.props.store.prevMonth}
               >&lt;&lt;prev</th>
-              <th className="text-center">{
-                this.props.store.date.getMonth() + 1
-              }月</th>
+              <th className="text-center">
+                {this.props.store.date.getFullYear()}年
+                {this.props.store.date.getMonth() + 1}月
+              </th>
               <th
                 className="text-center"
                 colSpan="3"
