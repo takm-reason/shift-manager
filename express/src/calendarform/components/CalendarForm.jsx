@@ -38,29 +38,6 @@ class CalendarForm extends React.Component {
           </thead>
           <Month month={this.props.store.month}/>
         </table>
-        <style>
-          {`input[type=checkbox]:checked + .btn.insert{
-            border-radius: 100em/100em;
-            color: #fff;
-            background-color: #5bc0de;
-            border-color: #46b8da;
-          }`}
-        </style>
-        <style>
-          {`input[type=checkbox] + .btn.delete{
-            border-radius: 100em/100em;
-            color: #fff;
-            background-color: #5bc0de;
-            border-color: #46b8da;
-          }`}
-        </style>
-        <style>
-          {`input[type=checkbox]:checked + .btn.delete{
-            border: none;
-            color: #000;
-            background-color: #fff;
-          }`}
-        </style>
         <div className="text-right">
           <button
             className="btn btn-success"
