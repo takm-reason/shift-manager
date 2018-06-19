@@ -21,6 +21,26 @@ export default class CalendarFormModel {
     this.month.onCheckDate(sleepId, sleepDate);
   }
 
+  @action
+  nextMonth = () => {
+    this.displayMonth(1);
+  }
+
+  @action
+  prevMonth = () => {
+    this.displayMonth(-1);
+  }
+
+  @action
+  displayMonth = (i) => {
+    this.date = new Date(
+      this.date.getFullYear(),
+      this.date.getMonth() + i,
+      this.date.getDate()
+    );
+    this.month.displayMonth(this.date);
+  }
+
   constructor() {
     this.date = new Date(
       this.date.getFullYear(),
@@ -28,5 +48,6 @@ export default class CalendarFormModel {
       this.date.getDate()
     );
     this.month = new MonthModel(this.date);
+    this.month.displayMonth(this.date);
   }
 }
