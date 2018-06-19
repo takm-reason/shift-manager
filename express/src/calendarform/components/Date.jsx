@@ -3,11 +3,13 @@ import {observer} from 'mobx-react';
 
 const Date = observer(({date}) => (
   <td
-    className="text-center"
     onClick={() => (date.checked = !date.checked)}
     style={{
+      textAlign: 'center',
+      verticalAlign: 'middle',
       backgroundColor: date.backgroundColor,
       color: date.color,
+      height: '80px',
     }}
   >
     <input
