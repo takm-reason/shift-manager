@@ -4,12 +4,12 @@ html
     title= title
     link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
   body
-    .navbar.navbar-default
+    .navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
           .navbar-brand シフト
         
         p.navbar-text.navbar-right
           a(href="/logout") Sign out
-    .container
+    .container(style='padding-top: 70px;')
       block content
