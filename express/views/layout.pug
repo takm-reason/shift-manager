@@ -5,11 +5,10 @@ html
     link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
   body
     .navbar.navbar-default.navbar-fixed-top
-      .container
+      .container-fluid
         .navbar-header
           .navbar-brand シフト
-        
         p.navbar-text.navbar-right
           a(href="/logout") Sign out
-    .container(style='padding-top: 70px;')
+    .container-fluid(style='padding-top: 70px;')
       block content
