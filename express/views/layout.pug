@@ -6,14 +6,22 @@ html(lang="jp")
     link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous")
     title= title
   body
-    nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+    nav.navbar.sticky-top.navbar-expand-md.navbar-dark.bg-dark
       a.navbar-brand(href="#")
         font(style="vertical-align: inherit;")
           font(style="vertical-align: inherit;") シフト
       button.navbar-toggler.collapsed(type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation")
         span.navbar-toggler-icon
       .collapse.navbar-collapse(id="navbarsExample04")
-        ul.navbar-nav.mr-auto
+        ul.navbar-nav.ml-auto
+          li.nav-item.active
+            a.nav-link(href="/logout")
+              font(style="vertical-align: inherit;")
+                font(style="vertical-align:inherit;") メニュー１
+          li.nav-item.active
+            a.nav-link(href="/logout")
+              font(style="vertical-align: inherit;")
+                font(style="vertical-align:inherit;") メニュー２
           li.nav-item.active
             a.nav-link(href="/logout")
               font(style="vertical-align: inherit;")
@@ -21,11 +29,7 @@ html(lang="jp")
               span.sr-only
                 font(style="vertical-align: inherit;")
                   font(style="vertical-align: inherit;") （現在）
-          li.nav-item.active
-            a.nav-link(href="/logout")
-              font(style="vertical-align: inherit;")
-                font(style="vertical-align:inherit;") メニュー１
-    .container-fluid(style='padding-top: 70px;')
+    .container-fluid.pt-3
       block content
     script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous")
