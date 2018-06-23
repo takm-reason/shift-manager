@@ -1,9 +1,20 @@
 extends layout
 
 block content
-    h1 休み希望を入力するカレンダー
-    hr
-    #calendarform
-    script(src="./dist/calendarform.js")
-    each date in sleepdate
-      script= `store.onCheckDate('${date.id}', '${date.date}')`
+  .row
+    nav.col-md-3.d-none.d-md-block.bg-light.sidebar
+      .sidebar-sticky
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link.active
+          li.nav-item
+            a.nav-link
+          li.nav-item
+            a.nav-link
+    main.col-md-9.ml-sm-auto.px-4.pt-3
+      h1 休み希望を入力するカレンダー
+      hr
+      #calendarform
+      script(src="./dist/calendarform.js")
+      each date in sleepdate
+        script= `store.onCheckDate('${date.id}', '${date.date}')`
