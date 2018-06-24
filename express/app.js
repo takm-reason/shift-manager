@@ -10,6 +10,7 @@ const authorize = require('connect-ensure-login').ensureLoggedIn('/login');
 
 const login = require('./routes/login');
 const index = require('./routes/index');
+const shift = require('./routes/shift');
 const users = require('./routes/users');
 
 const app = express();
@@ -36,6 +37,7 @@ app.use('/', login, authorize, index);
 app.use(authorize);
 // app.use('/', login, index);
 
+app.use('/shift', shift);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

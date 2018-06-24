@@ -5,6 +5,7 @@ module.exports = {
   devtool: 'eval',
   entry: {
     calendarform: './src/calendarform/index',
+    shift: './src/shift/index',
   },
   output: {
     path: path.join(__dirname, 'public/dist'),
