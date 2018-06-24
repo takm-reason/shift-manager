@@ -28,16 +28,17 @@ const isMobile = (userAgent) => {
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  getModel().read(`shift`, `userid`, req.user.id,
+  getModel().shiftread(`sleep`, `userid`, req.user.id,
   (err, results) => {
     if (err) {
       next(err);
       return;
     }
-    res.render('shift', {
-      title: 'Express',
-      sleepdate: results,
-    });
+    res.send(results);
+    // res.render('shift', {
+    //   title: 'Express',
+    //   sleepdate: results,
+    // });
   });
 });
 
@@ -75,6 +76,11 @@ router.get('/', (req, res, next) => {
 //   }
 //   return;
 // };
+
+router.post('/', (req, res, next) => {
+  console.log(req.body);
+  res.send(req.body);
+});
 
 // router.post('/', (req, res, next) => {
 //   console.log(req.body);
