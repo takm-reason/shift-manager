@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  .row
+    nav.col-md-3.d-none.d-md-block.bg-light.sidebar
+      .sidebar-sticky
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link.active active
+          li.nav-item
+            a.nav-link link
+          li.nav-item
+            a.nav-link link
+    main.col-md-9.ml-sm-auto.px-4.pt-3
+      h1 シフト
+      hr
+      #shift
+      script(src="./dist/shift.js")
+//      each date in sleepdate
+//        script= `store.onCheckDate('${date.id}', '${date.date}')`
