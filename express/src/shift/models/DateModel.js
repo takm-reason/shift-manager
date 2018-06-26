@@ -1,10 +1,15 @@
 import {observable, computed, action} from 'mobx';
 
-export default class DateModel {
-  id = Math.random();
-  @observable hidden;
+import DateModel from './DateModel';
 
-  constructor(index) {
-    this.hidden = index;
+export default class WeekModel {
+  id = Math.random();
+  @observable dates = [{}, {}, {}];
+
+  constructor() {
+    this.dates = this.dates.map((currentValue, index) => {
+      console.log(index);
+      return new DateModel(index);
+    });
   }
 }

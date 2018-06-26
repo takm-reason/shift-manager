@@ -1,34 +1,16 @@
 import React, {Component} from 'react';
+import {observable, action} from 'mobx';
 import {observer} from 'mobx-react';
 
-const Date = observer(({date}) => (
-  <tr>
-    <td colSpan='3' rowSpan='3' hidden={date.hidden}>23日</td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-  </tr>
-));
+import Date from './Date';
 
-export default Date;
+@observer
+class Week extends React.Component {
+  render() {
+    return this.props.week.dates.map((date) => (
+      <Date date={date} key={date.id}/>
+    ));
+  }
+}
+
+export default Week;
