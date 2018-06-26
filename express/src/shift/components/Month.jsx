@@ -12,18 +12,6 @@ class Month extends React.Component {
         {this.props.month.weeks.map((week) => (
           <Week week={week} key={week.id}/>
         ))}
-        <tr className="sr-only"><td><input
-          type="text"
-          name="insertlength"
-          value={this.props.month.insertCount}
-          readOnly
-        /></td></tr>
-        <tr className="sr-only"><td><input
-          type="text"
-          name="deletelength"
-          value={this.props.month.deleteCount}
-          readOnly
-        /></td></tr>
       </tbody>
     );
   }

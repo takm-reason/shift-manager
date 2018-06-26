@@ -34,11 +34,11 @@ router.get('/', (req, res, next) => {
       next(err);
       return;
     }
-    res.send(results);
-    // res.render('shift', {
-    //   title: 'Express',
-    //   sleepdate: results,
-    // });
+    // res.send(results);
+    res.render('shift', {
+      title: 'Express',
+      sleepdate: results,
+    });
   });
 });
 

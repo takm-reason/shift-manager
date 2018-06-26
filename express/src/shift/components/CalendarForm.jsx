@@ -9,35 +9,45 @@ class CalendarForm extends React.Component {
   render() {
     return (
       <form action="/" method="POST">
-        <table className="table" style={{tableLayout: 'fixed'}}>
+        <table className="table table-bordered" style={{tableLayout: 'fixed'}}>
           <thead>
             <tr>
-              <th
+            <th
                 className="text-center"
-                colSpan="2"
-                onClick={this.props.store.prevMonth}
-              >&lt;&lt;prev</th>
+                colSpan="3"
+              ></th>
               <th
                 className="text-center"
                 colSpan="3"
-              >
-                {this.props.store.date.getFullYear()
-                }年 {this.props.store.date.getMonth() + 1}月
-              </th>
+              >6~9</th>
               <th
                 className="text-center"
-                colSpan="2"
-                onClick={this.props.store.nextMonth}
-              >next&gt;&gt;</th>
-            </tr>
-            <tr>
-              <th className="text-center">月</th>
-              <th className="text-center">火</th>
-              <th className="text-center">水</th>
-              <th className="text-center">木</th>
-              <th className="text-center">金</th>
-              <th className="text-center">土</th>
-              <th className="text-center">日</th>
+                colSpan="3"
+              >9~12</th>
+              <th
+                className="text-center"
+                colSpan="3"
+              >12~15</th>
+              <th
+                className="text-center"
+                colSpan="3"
+              >15~18</th>
+              <th
+                className="text-center"
+                colSpan="3"
+              >18~21</th>
+              <th
+                className="text-center"
+                colSpan="3"
+              >21~0</th>
+              <th
+                className="text-center"
+                colSpan="3"
+              >0~3</th>
+              <th
+                className="text-center"
+                colSpan="3"
+              >3~6</th>
             </tr>
           </thead>
           <Month month={this.props.store.month}/>
