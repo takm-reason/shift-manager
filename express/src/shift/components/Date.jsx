@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import {observable, action} from 'mobx';
 import {observer} from 'mobx-react';
 
-import Date from './Date';
+import OneLine from './OneLine';
 
 @observer
-class Week extends React.Component {
+class Date extends React.Component {
   render() {
-    return this.props.week.dates.map((date) => (
-      <Date date={date} key={date.id}/>
+    return this.props.date.lines.map((date) => (
+      <OneLine date={date} key={date.id}/>
     ));
   }
 }
 
-export default Week;
+export default Date;

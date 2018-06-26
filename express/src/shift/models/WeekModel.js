@@ -1,13 +1,13 @@
 import {observable, computed, action} from 'mobx';
 
-import WeekModel from './WeekModel';
+import DateModel from './DateModel';
 
-export default class MonthModel {
-  @observable weeks = [{}, {}, {}, {}, {}, {}, {}];
+export default class WeekModel {
+  @observable dates = [{}, {}, {}, {}, {}, {}, {}];
 
   constructor() {
-    this.weeks = this.weeks.map(() => {
-      return new WeekModel();
+    this.dates = this.dates.map(() => {
+      return new DateModel();
     });
   };
 };

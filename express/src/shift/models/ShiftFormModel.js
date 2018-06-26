@@ -1,11 +1,11 @@
 import {observable, computed, action} from 'mobx';
 
-import MonthModel from './MonthModel';
+import WeekModel from './WeekModel';
 
 export default class CalendarFormModel {
-  @observable month = {};
+  @observable week = {};
 
   constructor() {
-    this.month = new MonthModel();
+    this.week = new WeekModel();
   }
 }

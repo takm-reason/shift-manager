@@ -1,6 +1,6 @@
 import {observable, computed, action} from 'mobx';
 
-export default class DateModel {
+export default class OneLineModel {
   id = Math.random();
   @observable hidden;
 
