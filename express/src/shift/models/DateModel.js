@@ -1,6 +1,6 @@
 import {observable, computed, action} from 'mobx';
 
-import OneLineModel from './OneLineModel';
+import LineModel from './LineModel';
 
 export default class WeekModel {
   id = Math.random();
@@ -9,7 +9,7 @@ export default class WeekModel {
   constructor() {
     this.lines = this.lines.map((currentValue, index) => {
       console.log(index);
-      return new OneLineModel(index);
+      return new LineModel(index);
     });
   }
 }
