@@ -3,7 +3,12 @@ import {observer} from 'mobx-react';
 
 const Line = observer(({date}) => (
   <tr>
-    <td colSpan='3' rowSpan='3' hidden={date.hidden}>23日</td>
+    <td colSpan='3'
+      rowSpan={date.array}
+      hidden={date.hidden}
+    >
+      {date.date.getDate()}日
+    </td>
     <td className='p-0'></td>
     <td className='p-0'></td>
     <td className='p-0'></td>
