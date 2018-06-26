@@ -2,25 +2,33 @@ import React, {Component} from 'react';
 import {observer} from 'mobx-react';
 
 const Date = observer(({date}) => (
-  <td
-    onClick={() => (date.checked = !date.checked)}
-    style={{
-      textAlign: 'center',
-      verticalAlign: 'middle',
-      backgroundColor: date.backgroundColor,
-      color: date.color,
-      height: '80px',
-    }}
-  >
-    <input
-      className="sr-only"
-      type="checkbox"
-      name={date.name}
-      value={date.value}
-      checked={date.checked}
-    />
-    {date.text}
-  </td>
+  <tr>
+    <td colSpan='3' rowSpan='3' hidden={date.hidden}>23日</td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+    <td className='p-0'></td>
+  </tr>
 ));
 
 export default Date;
