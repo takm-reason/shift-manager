@@ -4,8 +4,14 @@ import WeekModel from './WeekModel';
 
 export default class CalendarFormModel {
   @observable week = {};
+  @observable date = new Date();
 
   constructor() {
-    this.week = new WeekModel();
+    this.date = new Date(
+      this.date.getFullYear(),
+      this.date.getMonth(),
+      this.date.getDate()
+    );
+    this.week = new WeekModel(this.date);
   }
 }

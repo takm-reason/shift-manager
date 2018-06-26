@@ -67,10 +67,6 @@ const mondays = (date) => {
   return addNextDay([firstMonday(date)], lastMonday(nextYear(new Date(date))));
 };
 
-const weekModel = (date) => {
-  return new WeekModel(date);
-};
-
 export default class MonthModel {
   @observable weeks = [];
 
@@ -103,6 +99,8 @@ export default class MonthModel {
   }
 
   constructor(date) {
-    this.weeks = mondays(date).map(weekModel);
+    this.weeks = mondays(date).map((date) => {
+      return new WeekModel(date);
+    });
   };
 };
