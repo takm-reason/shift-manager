@@ -8,7 +8,6 @@ export default class WeekModel {
 
   constructor() {
     this.lines = this.lines.map((currentValue, index) => {
-      console.log(index);
       return new LineModel(index);
     });
   }
