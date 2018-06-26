@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {observable, action} from 'mobx';
 import {observer} from 'mobx-react';
 
-import Month from './Month';
+import Week from './Week';
 
 @observer
 class CalendarForm extends React.Component {
@@ -50,7 +50,7 @@ class CalendarForm extends React.Component {
               >3~6</th>
             </tr>
           </thead>
-          <Month month={this.props.store.month}/>
+          <Week week={this.props.store.week}/>
         </table>
         <div className="text-right">
           <button

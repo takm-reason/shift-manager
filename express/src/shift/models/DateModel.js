@@ -1,15 +1,15 @@
 import {observable, computed, action} from 'mobx';
 
-import DateModel from './DateModel';
+import OneLineModel from './OneLineModel';
 
 export default class WeekModel {
   id = Math.random();
-  @observable dates = [{}, {}, {}];
+  @observable lines = [{}, {}, {}];
 
   constructor() {
-    this.dates = this.dates.map((currentValue, index) => {
+    this.lines = this.lines.map((currentValue, index) => {
       console.log(index);
-      return new DateModel(index);
+      return new OneLineModel(index);
     });
   }
 }

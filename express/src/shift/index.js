@@ -2,14 +2,14 @@ import React from 'react';
 import {render} from 'react-dom';
 import DevTools from 'mobx-react-devtools';
 
-import CalendarForm from './components/CalendarForm';
-import CalendarFormModel from './models/CalendarFormModel';
+import ShiftForm from './components/ShiftForm';
+import ShiftFormModel from './models/ShiftFormModel';
 
-const store = new CalendarFormModel(new Date());
+const store = new ShiftFormModel(new Date());
 
 render(
   <div>
-    <CalendarForm store={store} />
+    <ShiftForm store={store} />
   </div>,
   document.getElementById('shift')
 );
