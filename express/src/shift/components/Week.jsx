@@ -2,15 +2,19 @@ import React, {Component} from 'react';
 import {observable, action} from 'mobx';
 import {observer} from 'mobx-react';
 
-import Date from './Date';
+import Week from './Week';
 
 @observer
-class Week extends React.Component {
+class Month extends React.Component {
   render() {
-    return this.props.week.dates.map((date) => (
-      <Date date={date} key={date.id}/>
-    ));
+    return (
+      <tbody>
+        {this.props.month.weeks.map((week) => (
+          <Week week={week} key={week.id}/>
+        ))}
+      </tbody>
+    );
   }
 }
 
-export default Week;
+export default Month;
