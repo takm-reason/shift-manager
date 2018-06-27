@@ -1,8 +1,27 @@
 const express = require('express');
 const router = new express.Router();
+let users;
+let sleep;
+let shift;
 
 const getModel = () => {
   return require(`./model-mysql`);
+};
+
+const setUsers = (results) => {
+  users = results;
+  console.log('==========');
+  console.log('==========');
+  console.log('==========');
+  console.log('==========');
+  console.log('==========');
+  console.log(results);
+  console.log(users);
+  console.log('==========');
+  console.log('==========');
+  console.log('==========');
+  console.log('==========');
+  console.log('==========');
 };
 
 const isMobile = (userAgent) => {
@@ -28,16 +47,38 @@ const isMobile = (userAgent) => {
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  getModel().shiftread(`sleep`, `userid`, req.user.id,
+  getModel().list(`users`,
   (err, results) => {
     if (err) {
       next(err);
       return;
     }
-    // res.send(results);
-    res.render('shift', {
-      title: 'Express',
-      sleepdate: results,
+    users = results;
+
+    getModel().list(`sleep`,
+    (err, results) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      sleep = results;
+
+      getModel().list(`shift`,
+      (err, results) => {
+        if (err) {
+          next(err);
+          return;
+        }
+        shift = results;
+
+  // res.send(results);
+  res.render('shift', {
+    title: 'Express',
+    users: users,
+    sleep: sleep,
+    shift: shift,
+  });
+      });
     });
   });
 });
