@@ -16,3 +16,9 @@ block content
       hr
       #shift
       script(src="./dist/shift.js")
+      each date in users
+        script= `store.addUsers('${date.username}')`
+      each date in sleep
+        script= `store.addSleep('${date.userid}')`
+      each date in shift
+        script= `store.addShift('${date.userid}')`

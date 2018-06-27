@@ -9,6 +9,7 @@ const options = {
   password: config.password,
   database: config.database,
   host: config.host,
+  multipleStatements: true,
 };
 
 const connection = mysql.createConnection(options);
@@ -19,7 +20,7 @@ const list = (table, cb) => {
       cd(err);
       return;
     }
-    cb(null, results);
+    return cb(null, results);
   });
 };
 
@@ -45,11 +46,14 @@ const read = (table, column, value, cb) => {
 };
 
 // LEFT JOIN tbl_name2 ON table_name1.col_name1 = table_name2.col_name2;
-// SELECT users.name AS user, products.name AS favorite FROM users JOIN products ON users.favorite_product = products.id
-// SELECT users.name AS user, products.name AS favorite FROM users JOIN products ON users.favorite_product = products.id
+// SELECT users.name AS user, products.name AS
+// favorite FROM users JOIN products ON users.favorite_product = products.id
+// SELECT users.name AS user, products.name AS
+// favorite FROM users JOIN products ON users.favorite_product = products.id
 const shiftread = (table, column, value, cb) => {
   connection.query(
-    'SELECT * FROM ?? JOIN users ON sleep.userid = users.id WHERE ?? = ?', [table, column, value], (err, results) => {
+    'SELECT * FROM ?? JOIN users ON sleep.userid = users.id WHERE ?? = ?',
+    [table, column, value], (err, results) => {
       if (err) {
         cb(err);
         return;
