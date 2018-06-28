@@ -1,27 +1,9 @@
 const express = require('express');
 const router = new express.Router();
-let users;
-let sleep;
-let shift;
+const async = require('async');
 
 const getModel = () => {
   return require(`./model-mysql`);
-};
-
-const setUsers = (results) => {
-  users = results;
-  console.log('==========');
-  console.log('==========');
-  console.log('==========');
-  console.log('==========');
-  console.log('==========');
-  console.log(results);
-  console.log(users);
-  console.log('==========');
-  console.log('==========');
-  console.log('==========');
-  console.log('==========');
-  console.log('==========');
 };
 
 const isMobile = (userAgent) => {
@@ -45,40 +27,56 @@ const isMobile = (userAgent) => {
     );
 };
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  getModel().list(`users`,
-  (err, results) => {
+(callback) => {
+  getModel().list(`users`, (err, results) => {
     if (err) {
       next(err);
       return;
     }
-    users = results;
+    callback(err, results);
+  });
+};
 
-    getModel().list(`sleep`,
-    (err, results) => {
-      if (err) {
-        next(err);
-        return;
-      }
-      sleep = results;
-
+/* GET home page. */
+router.get('/', (req, res, next) => {
+  async.parallel({
+    users: (callback) => {
+      getModel().list(`users`, (err, results) => {
+        if (err) {
+          next(err);
+          return;
+        }
+        callback(err, results);
+      });
+    },
+    sleep: (callback) => {
+      getModel().list(`sleep`, (err, results) => {
+        if (err) {
+          next(err);
+          return;
+        }
+        callback(err, results);
+      });
+    },
+    shift: (callback) => {
       getModel().list(`shift`,
       (err, results) => {
         if (err) {
           next(err);
           return;
         }
-        shift = results;
-
-  // res.send(results);
-  res.render('shift', {
-    title: 'Express',
-    users: users,
-    sleep: sleep,
-    shift: shift,
-  });
+        callback(err, results);
       });
+    },
+  }, (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.render('shift', {
+      title: 'Express',
+      users: results.users,
+      sleep: results.sleep,
+      shift: results.shift,
     });
   });
 });
