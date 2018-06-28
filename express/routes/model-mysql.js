@@ -14,6 +14,16 @@ const options = {
 
 const connection = mysql.createConnection(options);
 
+const table = (table, cb) => {
+  connection.query('SELECT * FROM ??', table, (err, results) => {
+    if (err) {
+      cd(err);
+      return;
+    }
+    return cb(null, results);
+  });
+};
+
 const list = (table, cb) => {
   connection.query('SELECT * FROM ??', table, (err, results) => {
     if (err) {
@@ -78,6 +88,7 @@ const _delete = (table, column, value, cb) => {
 };
 
 module.exports = {
+  table: table,
   list: list,
   create: create,
   read: read,
