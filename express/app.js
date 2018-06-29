@@ -10,8 +10,9 @@ const authorize = require('connect-ensure-login').ensureLoggedIn('/login');
 
 const login = require('./routes/login');
 const index = require('./routes/index');
-const shift = require('./routes/shift');
 const users = require('./routes/users');
+const sleep = require('./routes/sleep');
+const shift = require('./routes/shift');
 const database = require('./routes/database');
 
 const app = express();
@@ -38,8 +39,9 @@ app.use('/', login, authorize, index);
 app.use(authorize);
 // app.use('/', login, index);
 
-app.use('/shift', shift);
 app.use('/users', users);
+app.use('/sleep', sleep);
+app.use('/shift', shift);
 app.use('/database', database);
 
 // catch 404 and forward to error handler
