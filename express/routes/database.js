@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
       next(err);
       return;
     }
-    res.render('database', {
+    res.render('layout/database.pug', {
       title: 'Express',
     });
   }));
@@ -25,7 +25,7 @@ router.get('/:table', (req, res, next) => {
       next(err);
       return;
     }
-    res.render('database', {
+    res.render('layout/database.pug', {
       title: 'Express',
       tablename: req.params.table,
       tabledate: results,

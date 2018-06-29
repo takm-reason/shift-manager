@@ -34,7 +34,7 @@ router.get('/', (req, res, next) => {
       next(err);
       return;
     }
-    res.render('sleep', {
+    res.render('layout/sleep.pug', {
       title: 'Express',
       sleepdate: results,
     });
