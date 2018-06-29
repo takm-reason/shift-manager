@@ -17,12 +17,10 @@ block content
         table.table.table-striped
           thead
             tr
-              th='id'
-              th='username'
-              th='root'
+              each val, index in tabledate[0]
+                th= index
           tbody
             each date in tabledate
               tr
-                th= date.id
-                td= date.username
-                td= date.root
+                each val, index in date
+                  th= val
