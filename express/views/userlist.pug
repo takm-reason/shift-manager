@@ -1,32 +1,32 @@
 extends layout
 
 block content
+  main.col-md-9.ml-sm-auto.pt-3.px-4
+    h3.pt-3 Add user
+    form.form-inline(action="/users" method="POST")
+      .form-group
+        label.sr-only(for="username") username
+        input.form-control(type="text", name="username", id="username", placeholder="username")
+      .form-group
+        label.sr-only(for="password") password
+        input.form-control(type="password", name="password", id="password", placeholder="password")
+      .form-group
+        label.form-control(for="root")
+          input(type="checkbox", name="root", value="1", id="root")
+      .text-right
+        button.btn.btn-success(type="submit") add
 
-  h3.pt-3 Add user
-  form.form-inline(action="/users" method="POST")
-    .form-group
-      label.sr-only(for="username") username
-      input.form-control(type="text", name="username", id="username", placeholder="username")
-    .form-group
-      label.sr-only(for="password") password
-      input.form-control(type="password", name="password", id="password", placeholder="password")
-    .form-group
-      label.form-control(for="root")
-        input(type="checkbox", name="root", value="1", id="root")
-    .text-right
-      button.btn.btn-success(type="submit") add
-
-  h3 Users
-  div.table-responsive
-    table.table.table-striped
-      thead
-        tr
-          th='id'
-          th='username'
-          th='root'
-      tbody
-        each user in users
+    h3 Users
+    div.table-responsive
+      table.table.table-striped
+        thead
           tr
-            th= user.id
-            td= user.username
-            td= user.root
+            th='id'
+            th='username'
+            th='root'
+        tbody
+          each user in users
+            tr
+              th= user.id
+              td= user.username
+              td= user.root
