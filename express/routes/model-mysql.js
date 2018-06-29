@@ -17,7 +17,7 @@ const connection = mysql.createConnection(options);
 const table = (table, cb) => {
   connection.query('SELECT * FROM ??', table, (err, results) => {
     if (err) {
-      cd(err);
+      cb(err);
       return;
     }
     return cb(null, results);

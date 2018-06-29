@@ -7,9 +7,7 @@ const getModel = () => {
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('database', {
-    title: 'Express',
-  });
+  res.send('database');
 });
 
 /* GET home page. */
