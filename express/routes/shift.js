@@ -72,7 +72,7 @@ router.get('/', (req, res, next) => {
     if (err) {
       throw err;
     }
-    res.render('shift', {
+    res.render('layout/shift.pug', {
       title: 'Express',
       users: results.users,
       sleep: results.sleep,

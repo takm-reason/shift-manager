@@ -25,7 +25,7 @@ router.get('/', (req, res, next) => {
     if (entities.length == 0) {
       res.ridirect('login');
     }
-    res.render('userlist.pug', {
+    res.render('layout/userlist.pug', {
       title: 'Bookshelf',
       users: entities,
     });
