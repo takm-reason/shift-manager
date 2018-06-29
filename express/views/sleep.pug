@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  .row
+    nav.col-md-3.d-none.d-md-block.bg-light.sidebar
+      .sidebar-sticky
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link.active active
+          li.nav-item
+            a.nav-link link
+          li.nav-item
+            a.nav-link link
+    main.col-md-9.ml-sm-auto.pt-3.px-4
+      h1 休み希望を入力するカレンダー
+      hr
+      #calendarform
+      script(src="./dist/calendarform.js")
+      each date in sleepdate
+        script= `store.onCheckDate('${date.id}', '${date.date}')`
