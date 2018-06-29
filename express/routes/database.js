@@ -7,7 +7,15 @@ const getModel = () => {
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.send('database');
+  getModel().showtable(((err, results) => {
+    if (err) {
+      next(err);
+      return;
+    }
+    res.render('database', {
+      title: 'Express',
+    });
+  }));
 });
 
 /* GET home page. */
