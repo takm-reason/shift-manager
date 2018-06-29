@@ -1,6 +1,9 @@
-extends layout
-
-block content
-  h1.pt-3= message
-  h2= error.status
-  pre #{error.stack}
+doctype html
+html(lang="jp")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+  body
+    h1= message
+    h2= error.status
+    pre #{error.stack}
