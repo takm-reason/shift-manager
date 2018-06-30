@@ -3,10 +3,4 @@ extends ./../layout.pug
 block content
   main.col-md-9.ml-sm-auto.pt-3.px-4
     each main in mains
-      h1= `${main.title}`
-      hr
-      div(id=`${main.id}`)
-      script(src=`./dist/${main.id}.js`)
-      each date in main.store
-        script= `store.onCheckDate('${date.id}', '${date.date}')`
-    
+      include ./../includes/component.pug
