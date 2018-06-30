@@ -62,28 +62,11 @@ router.get('/', (req, res, next) => {
     if (err) {
       throw err;
     }
-    res.render('layout/index.pug', {
+    res.render('layout/shift.pug', {
       title: 'Express',
-      mains: [
-        {
-          type: 'table',
-          title: 'users',
-          id: 'users',
-          results: results.users,
-        },
-        {
-          type: 'table',
-          title: 'sleep',
-          id: 'sleep',
-          results: results.sleep,
-        },
-        {
-          type: 'component',
-          title: 'shift',
-          id: 'shift',
-          results: results.shift,
-        },
-      ],
+      main: {
+          results: results,
+      },
     });
   });
 });
