@@ -3,4 +3,7 @@ extends ./../layout.pug
 block content
   main.col-md-9.ml-sm-auto.pt-3.px-4
     each main in mains
-      include ./../includes/component.pug
+      if main.kind=='component'
+        include ./../includes/mains/component.pug
+      if main.kind=='table'
+        include ./../includes/mains/table.pug
