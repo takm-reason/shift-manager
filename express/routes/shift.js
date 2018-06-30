@@ -27,16 +27,6 @@ const isMobile = (userAgent) => {
     );
 };
 
-(callback) => {
-  getModel().list(`users`, (err, results) => {
-    if (err) {
-      next(err);
-      return;
-    }
-    callback(err, results);
-  });
-};
-
 /* GET home page. */
 router.get('/', (req, res, next) => {
   async.parallel({

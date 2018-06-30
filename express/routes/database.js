@@ -5,6 +5,24 @@ const getModel = () => {
   return require(`./model-mysql`);
 };
 
+const sidebar = () => [
+  {
+    text: 'users',
+    active: true,
+    link: 'database/users',
+  },
+  {
+    text: 'sleep',
+    active: true,
+    link: 'database/sleep',
+  },
+  {
+    text: 'shift',
+    active: true,
+    link: 'database/shift',
+  },
+];
+
 /* GET home page. */
 router.get('/', (req, res, next) => {
   getModel().showtable(((err, results) => {
