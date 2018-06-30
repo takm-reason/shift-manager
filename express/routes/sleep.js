@@ -34,16 +34,11 @@ router.get('/', (req, res, next) => {
       next(err);
       return;
     }
-    res.render('layout/index.pug', {
+    res.render('layout/sleep.pug', {
       title: 'Express',
-      mains: [
-        {
-          type: 'component',
-          title: '休み希望を入力するカレンダー',
-          id: 'calendarform',
+      main: {
           results: results,
-        },
-      ],
+      },
     });
   });
 });
