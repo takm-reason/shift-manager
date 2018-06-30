@@ -1,10 +1,12 @@
 extends ./../layout.pug
 
 block content
-  main.col-md-9.ml-sm-auto.pt-3.px-4
-    h1 休み希望を入力するカレンダー
-    hr
-    #calendarform
-    script(src="./dist/calendarform.js")
-    each date in sleepdate
-      script= `store.onCheckDate('${date.id}', '${date.date}')`
+  each main in mains
+    main.col-md-9.ml-sm-auto.pt-3.px-4
+      h1= `${main.title}`
+      hr
+      div(id=`${main.id}`)
+      script(src=`./dist/${main.id}.js`)
+      each date in main.store
+        script= `store.onCheckDate('${date.id}', '${date.date}')`
+    

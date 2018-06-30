@@ -36,7 +36,13 @@ router.get('/', (req, res, next) => {
     }
     res.render('layout/index.pug', {
       title: 'Express',
-      sleepdate: results,
+      mains: [
+        {
+          title: '休み希望を入力するカレンダー',
+          id: 'calendarform',
+          store: results,
+        },
+      ],
     });
   });
 });
