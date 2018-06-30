@@ -1,0 +1,7 @@
+h1= `${main.title}`
+hr
+div(id=`${main.id}`)
+script(src=`./dist/${main.id}.js`)
+each date in main.store
+  script= `store.onCheckDate('${date.id}', '${date.date}')`
+    
