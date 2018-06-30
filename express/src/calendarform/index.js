@@ -5,13 +5,13 @@ import DevTools from 'mobx-react-devtools';
 import CalendarForm from './components/CalendarForm';
 import CalendarFormModel from './models/CalendarFormModel';
 
-const store = new CalendarFormModel(new Date());
+const calendarform = new CalendarFormModel(new Date());
 
 render(
   <div>
-    <CalendarForm store={store} />
+    <CalendarForm calendarform={calendarform} />
   </div>,
   document.getElementById('calendarform')
 );
 
-window.store = store;
+window.calendarform = calendarform;
