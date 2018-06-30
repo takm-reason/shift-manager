@@ -30,9 +30,8 @@ router.get('/', (req, res, next) => {
       next(err);
       return;
     }
-    res.render('layout/index.pug', {
+    res.render('layout/database.pug', {
       title: 'Express',
-      mains: [],
     });
   }));
 });
@@ -44,15 +43,13 @@ router.get('/:table', (req, res, next) => {
       next(err);
       return;
     }
-    res.render('layout/index.pug', {
+    res.render('layout/database.pug', {
       title: 'Express',
-      mains: [
-        {
+      main: {
           type: 'table',
           title: req.params.table,
           results: results,
-        },
-      ],
+      },
     });
   });
 });

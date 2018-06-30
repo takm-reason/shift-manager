@@ -1,0 +1,17 @@
+extends ./../layout.pug
+
+block content
+  main.col-md-9.ml-sm-auto.pt-3.px-4
+    if main
+      h1= `${main.title}`
+      div.table-responsive
+        table.table.table-striped
+          thead
+            tr
+              each val, index in main.results[0]
+                th= index
+          tbody
+            each date in main.results
+              tr
+                each val, index in date
+                  td= val
