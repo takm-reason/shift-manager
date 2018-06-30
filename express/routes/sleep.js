@@ -34,9 +34,16 @@ router.get('/', (req, res, next) => {
       next(err);
       return;
     }
-    res.render('layout/sleep.pug', {
+    res.render('layout/index.pug', {
       title: 'Express',
-      sleepdate: results,
+      mains: [
+        {
+          kind: 'component',
+          title: '休み希望を入力するカレンダー',
+          id: 'calendarform',
+          results: results,
+        },
+      ],
     });
   });
 });
@@ -90,7 +97,7 @@ router.post('/', (req, res, next) => {
   if (req.body.delete) {
     _delete(req, next);
   }
-  res.redirect('/');
+  res.redirect('/sleep');
   // res.send(req.body);
 });
 

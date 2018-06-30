@@ -8,7 +8,7 @@ import Month from './Month';
 class CalendarForm extends React.Component {
   render() {
     return (
-      <form action="/" method="POST">
+      <form action="/sleep" method="POST">
         <table className="table" style={{tableLayout: 'fixed'}}>
           <thead>
             <tr>
