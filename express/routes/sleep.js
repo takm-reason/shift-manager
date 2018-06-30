@@ -38,7 +38,7 @@ router.get('/', (req, res, next) => {
       title: 'Express',
       mains: [
         {
-          kind: 'component',
+          type: 'component',
           title: '休み希望を入力するカレンダー',
           id: 'calendarform',
           results: results,

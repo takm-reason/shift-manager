@@ -48,7 +48,7 @@ router.get('/:table', (req, res, next) => {
       title: 'Express',
       mains: [
         {
-          kind: 'table',
+          type: 'table',
           title: req.params.table,
           results: results,
         },

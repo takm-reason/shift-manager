@@ -38,19 +38,19 @@ router.get('/', (req, res, next) => {
       title: 'Express',
       mains: [
         {
-          kind: 'table',
+          type: 'table',
           title: '休み希望を入力するカレンダー',
           id: 'calendarform',
           results: results,
         },
         {
-          kind: 'component',
+          type: 'component',
           title: '休み希望を入力するカレンダー',
           id: 'calendarform',
           results: results,
         },
         {
-          kind: 'table',
+          type: 'table',
           title: '休み希望を入力するカレンダー',
           id: 'calendarform',
           results: results,
