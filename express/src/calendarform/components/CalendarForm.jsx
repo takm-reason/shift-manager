@@ -15,19 +15,19 @@ class CalendarForm extends React.Component {
               <th
                 className="text-center"
                 colSpan="2"
-                onClick={this.props.store.prevMonth}
+                onClick={this.props.calendarform.prevMonth}
               >&lt;&lt;prev</th>
               <th
                 className="text-center"
                 colSpan="3"
               >
-                {this.props.store.date.getFullYear()
-                }年 {this.props.store.date.getMonth() + 1}月
+                {this.props.calendarform.date.getFullYear()
+                }年 {this.props.calendarform.date.getMonth() + 1}月
               </th>
               <th
                 className="text-center"
                 colSpan="2"
-                onClick={this.props.store.nextMonth}
+                onClick={this.props.calendarform.nextMonth}
               >next&gt;&gt;</th>
             </tr>
             <tr>
@@ -40,7 +40,7 @@ class CalendarForm extends React.Component {
               <th className="text-center">日</th>
             </tr>
           </thead>
-          <Month month={this.props.store.month}/>
+          <Month month={this.props.calendarform.month}/>
         </table>
         <div className="text-right">
           <button

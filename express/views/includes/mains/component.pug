@@ -3,5 +3,5 @@ hr
 div(id=`${main.id}`)
 script(src=`./dist/${main.id}.js`)
 each date in main.results
-  script= `store.onCheckDate('${date.id}', '${date.date}')`
+  script= `${main.id}.onCheckDate('${date.id}', '${date.date}')`
     
