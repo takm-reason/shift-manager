@@ -66,19 +66,19 @@ router.get('/', (req, res, next) => {
       title: 'Express',
       mains: [
         {
-          kind: 'table',
+          type: 'table',
           title: 'users',
           id: 'users',
           results: results.users,
         },
         {
-          kind: 'table',
+          type: 'table',
           title: 'sleep',
           id: 'sleep',
           results: results.sleep,
         },
         {
-          kind: 'component',
+          type: 'component',
           title: 'shift',
           id: 'shift',
           results: results.shift,
