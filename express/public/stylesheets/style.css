@@ -8,6 +8,18 @@ body {
   height: 100%;
 }
 
+div.container-fluid {
+  height: calc(100% - 56px);
+}
+
+div.row {
+  height: 100%;
+}
+
+main {
+  height: 100%;
+}
+
 .form-signin {
   width: 100%;
   max-width: 420px;
