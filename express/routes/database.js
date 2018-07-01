@@ -32,6 +32,7 @@ router.get('/', (req, res, next) => {
     }
     res.render('layout/database.pug', {
       title: 'Express',
+      nav: true,
       side: [
         {
           text: 'shift',
@@ -51,18 +52,19 @@ router.get('/:table', (req, res, next) => {
     }
     res.render('layout/database.pug', {
       title: 'Express',
-      main: {
-          type: 'table',
-          title: req.params.table,
-          results: results,
-      },
+      nav: true,
       side: [
         {
           text: 'shift',
           href: './shift',
         },
       ],
-    });
+      main: {
+        type: 'table',
+        title: req.params.table,
+        results: results,
+    },
+  });
   });
 });
 

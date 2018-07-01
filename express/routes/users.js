@@ -27,15 +27,16 @@ router.get('/', (req, res, next) => {
     }
     res.render('layout/userlist.pug', {
       title: 'Bookshelf',
-      main: {
-        users: entities,
-      },
+      nav: true,
       side: [
         {
           text: 'shift',
           href: './shift',
         },
       ],
+      main: {
+        users: entities,
+      },
     });
   });
 });
