@@ -36,16 +36,17 @@ router.get('/', (req, res, next) => {
     }
     res.render('layout/sleep.pug', {
       title: 'Express',
-      main: {
-          results: results,
-      },
+      nav: true,
       side: [
         {
           text: 'shift',
           href: './shift',
         },
       ],
-    });
+      main: {
+        results: results,
+    },
+  });
   });
 });
 
