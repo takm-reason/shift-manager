@@ -1,14 +1,13 @@
 extends ./../layout.pug
 
 block content
-  main.pt-3.px-4.align-middle
     form.form-signin(action="/login" method="POST")
       .text-center.mb-4
         h1.h3.mb-3.font-weight-normal shift login
       .form-label-group
-        input.form-control(type="text", name="username", id="username")
-        label(for="username") username
+        input.form-control(type="text", name="username", id="username", placeholder="Username")
+        label(for="username") Username
       .form-label-group
-        input.form-control(type="password", name="password", id="password")
-        label(for="password") password
+        input.form-control(type="password", name="password", id="password", placeholder="Password")
+        label(for="password") Password
       button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
