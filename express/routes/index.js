@@ -37,11 +37,17 @@ router.get('/', (req, res, next) => {
     res.render('layout/index.pug', {
       title: 'Express',
       main: {
-          type: 'table',
-          title: '休み希望を入力するカレンダー',
-          id: 'calendarform',
-          results: results,
+        type: 'table',
+        title: '休み希望を入力するカレンダー',
+        id: 'calendarform',
+        results: results,
       },
+      side: [
+        {
+          text: 'shift',
+          href: './shift',
+        },
+      ],
     });
   });
 });

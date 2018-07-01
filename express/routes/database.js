@@ -32,6 +32,12 @@ router.get('/', (req, res, next) => {
     }
     res.render('layout/database.pug', {
       title: 'Express',
+      side: [
+        {
+          text: 'shift',
+          href: './shift',
+        },
+      ],
     });
   }));
 });
@@ -50,6 +56,12 @@ router.get('/:table', (req, res, next) => {
           title: req.params.table,
           results: results,
       },
+      side: [
+        {
+          text: 'shift',
+          href: './shift',
+        },
+      ],
     });
   });
 });
