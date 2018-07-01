@@ -1,14 +1,13 @@
 extends ./../layout.pug
 
 block content
-  main.col-md-9.ml-sm-auto.px-4.pt-3
-    h1 シフト
-    hr
-    #shift
-    script(src="./dist/shift.js")
-    each date in main.results.users
-      script= `store.addUsers('id: ${date.id}, username: ${date.username}')`
-    each date in main.results.sleep
-      script= `store.addSleep('id: ${date.id}, userid: ${date.userid}')`
-    each date in main.results.shift
-      script= `store.addShift('id: ${date.id}, userid: ${date.userid}')`
+  h1 シフト
+  hr
+  #shift
+  script(src="./dist/shift.js")
+  each date in main.results.users
+    script= `store.addUsers('id: ${date.id}, username: ${date.username}')`
+  each date in main.results.sleep
+    script= `store.addSleep('id: ${date.id}, userid: ${date.userid}')`
+  each date in main.results.shift
+    script= `store.addShift('id: ${date.id}, userid: ${date.userid}')`

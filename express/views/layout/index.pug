@@ -1,12 +1,11 @@
 extends ./../layout.pug
 
 block content
-  main.col-md-9.ml-sm-auto.pt-3.px-4
-    if main
-      h1 main
-      div.table-responsive
-        table.table.table-striped
-          each val, index in main
-            tr
-              th= index
-              td= val
+  if main
+    h1 main
+    div.table-responsive
+      table.table.table-striped
+        each val, index in main
+          tr
+            th= index
+            td= val

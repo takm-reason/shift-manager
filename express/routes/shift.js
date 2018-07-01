@@ -67,6 +67,12 @@ router.get('/', (req, res, next) => {
       main: {
           results: results,
       },
+      side: [
+        {
+          text: 'shift',
+          href: './shift',
+        },
+      ],
     });
   });
 });

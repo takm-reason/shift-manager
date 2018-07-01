@@ -1,9 +1,6 @@
 nav.col-md-3.d-none.d-md-block.bg-light.sidebar
   .sidebar-sticky
     ul.nav.flex-column
-      li.nav-item
-        a.nav-link.active active
-      li.nav-item
-        a.nav-link link
-      li.nav-item
-        a.nav-link link
+      each item in side
+        li.nav-item
+          a.nav-link.active(href=item.href)= item.text
