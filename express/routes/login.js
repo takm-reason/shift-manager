@@ -9,7 +9,7 @@ router.use(passport.session());
 
 router.get('/login',
   (req, res) => {
-    res.render('login');
+    res.render('layout/login.pug');
   }
 );
 
