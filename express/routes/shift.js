@@ -44,12 +44,7 @@ router.get('/', (req, res, next) => {
     res.render('layout/shift.pug', {
       title: 'Express',
       nav: true,
-      side: [
-        {
-          text: 'shift.get',
-          href: './shift',
-        },
-      ],
+      side: [],
       main: {
         results: results,
       },
