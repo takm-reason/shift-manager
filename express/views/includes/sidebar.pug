@@ -3,4 +3,4 @@ nav.col-md-3.d-none.d-md-block.bg-light.sidebar
     ul.nav.flex-column
       each item in side
         li.nav-item
-          a.nav-link(class='', href=item.href)= item.text
+          a.nav-link(class=item.active, href=item.href)= item.text
