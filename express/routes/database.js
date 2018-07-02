@@ -6,18 +6,6 @@ const getModel = () => {
   return require(`./model-mysql`);
 };
 
-const getSidebar = (results, table = false) => {
-  results = results.map((result) => {
-    return {
-      text: result.Tables_in_bookshelf,
-      href: `./${result.Tables_in_bookshelf}`,
-      active: result.Tables_in_bookshelf == table ? 'active' : '',
-    };
-  });
-  console.log(results);
-  return results;
-};
-
 /* GET home page. */
 router.get('/', (req, res, next) => {
   getModel().showtable((err, results) => {
@@ -28,10 +16,12 @@ router.get('/', (req, res, next) => {
     res.render('layout/database.pug', {
       title: 'Express',
       nav: true,
-      side: getSidebar(results),
-      main: {
-        results: results,
-      },
+      side: results.map((result) => {
+        return {
+          text: result.Tables_in_bookshelf,
+          href: `./database/${result.Tables_in_bookshelf}`,
+        };
+      }),
     });
   });
 });
@@ -64,7 +54,14 @@ router.get('/:table', (req, res, next) => {
     res.render('layout/database.pug', {
       title: 'Express',
       nav: true,
-      side: getSidebar(results.tablelist, req.params.table),
+      side: results.tablelist.map((result) => {
+        return {
+          text: result.Tables_in_bookshelf,
+          href: `./${result.Tables_in_bookshelf}`,
+          active: result.Tables_in_bookshelf == req.params.table
+            ? 'active' : '',
+        };
+      }),
       main: {
         type: 'table',
         title: req.params.table,
