@@ -5,27 +5,6 @@ const getModel = () => {
   return require(`./model-mysql`);
 };
 
-const isMobile = (userAgent) => {
-  return (
-      userAgent.indexOf('Windows') != -1 &&
-      userAgent.indexOf('Phone') != -1
-    ) ||
-    userAgent.indexOf('iPhone') != -1 ||
-    userAgent.indexOf('iPod') != -1
-    || (
-      userAgent.indexOf('Android') != -1 &&
-      userAgent.indexOf('Mobile') != -1
-    ) ||
-    (
-      userAgent.indexOf('Firefox') != -1 &&
-      userAgent.indexOf('Mobile') != -1
-    ) ||
-    (
-      userAgent.indexOf('BB10') != -1 &&
-      userAgent.indexOf('Mobile') != -1
-    );
-};
-
 /* GET home page. */
 router.get('/', (req, res, next) => {
   getModel().read(`sleep`, `userid`, req.user.id,
