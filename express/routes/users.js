@@ -30,7 +30,7 @@ router.get('/', (req, res, next) => {
       nav: true,
       side: [
         {
-          text: 'shift',
+          text: 'users.get',
           href: './shift',
         },
       ],
