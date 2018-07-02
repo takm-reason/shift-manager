@@ -16,12 +16,7 @@ router.get('/', (req, res, next) => {
     res.render('layout/sleep.pug', {
       title: 'Express',
       nav: true,
-      side: [
-        {
-          text: 'sleep.get',
-          href: './shift',
-        },
-      ],
+      side: [],
       main: {
         results: results,
     },

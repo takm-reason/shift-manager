@@ -28,12 +28,7 @@ router.get('/', (req, res, next) => {
     res.render('layout/userlist.pug', {
       title: 'Bookshelf',
       nav: true,
-      side: [
-        {
-          text: 'users.get',
-          href: './shift',
-        },
-      ],
+      side: [],
       main: {
         users: entities,
       },
