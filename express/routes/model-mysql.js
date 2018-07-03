@@ -94,6 +94,7 @@ const _delete = (table, column, value, cb) => {
 
 module.exports = {
   showtable: showtable,
+  showcolumn: showcolumn,
   table: table,
   shiftread: shiftread,
   create: create,
