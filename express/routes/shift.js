@@ -10,7 +10,7 @@ const getModel = () => {
 router.get('/', (req, res, next) => {
   async.parallel({
     users: (callback) => {
-      getModel().list(`users`, (err, results) => {
+      getModel().table(`users`, (err, results) => {
         if (err) {
           next(err);
           return;
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
       });
     },
     sleep: (callback) => {
-      getModel().list(`sleep`, (err, results) => {
+      getModel().table(`sleep`, (err, results) => {
         if (err) {
           next(err);
           return;
@@ -28,7 +28,7 @@ router.get('/', (req, res, next) => {
       });
     },
     shift: (callback) => {
-      getModel().list(`shift`,
+      getModel().table(`shift`,
       (err, results) => {
         if (err) {
           next(err);

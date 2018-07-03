@@ -17,7 +17,7 @@ router.use((req, res, next) => {
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {
-  getModel().list('users', (err, entities) => {
+  getModel().table('users', (err, entities) => {
     if (err) {
       next(err);
       return;

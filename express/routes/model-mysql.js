@@ -34,16 +34,6 @@ const table = (table, cb) => {
   });
 };
 
-const list = (table, cb) => {
-  connection.query('SELECT * FROM ??', table, (err, results) => {
-    if (err) {
-      cd(err);
-      return;
-    }
-    return cb(null, results);
-  });
-};
-
 const create = (table, data, cb) => {
   connection.query('INSERT INTO ?? SET ?', [table, data], (err, res) => {
     if (err) {
@@ -65,11 +55,6 @@ const read = (table, column, value, cb) => {
     });
 };
 
-// LEFT JOIN tbl_name2 ON table_name1.col_name1 = table_name2.col_name2;
-// SELECT users.name AS user, products.name AS
-// favorite FROM users JOIN products ON users.favorite_product = products.id
-// SELECT users.name AS user, products.name AS
-// favorite FROM users JOIN products ON users.favorite_product = products.id
 const shiftread = (table, column, value, cb) => {
   connection.query(
     'SELECT * FROM ?? JOIN users ON sleep.userid = users.id WHERE ?? = ?',
@@ -100,7 +85,6 @@ const _delete = (table, column, value, cb) => {
 module.exports = {
   showtable: showtable,
   table: table,
-  list: list,
   create: create,
   read: read,
   shiftread: shiftread,
