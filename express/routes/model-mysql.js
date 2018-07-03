@@ -24,6 +24,16 @@ const showtable = (cb) => {
   });
 };
 
+const showcolumn = (table, cb) => {
+  connection.query('SHOW COLUMNS FROM ??', table, (err, results) => {
+    if (err) {
+      cb(err);
+      return;
+    }
+    return cb(null, results);
+  });
+};
+
 const table = (table, cb) => {
   connection.query('SELECT * FROM ??', table, (err, results) => {
     if (err) {
@@ -32,6 +42,18 @@ const table = (table, cb) => {
     }
     return cb(null, results);
   });
+};
+
+const shiftread = (table, column, value, cb) => {
+  connection.query(
+    'SELECT * FROM ?? JOIN users ON sleep.userid = users.id WHERE ?? = ?',
+    [table, column, value], (err, results) => {
+      if (err) {
+        cb(err);
+        return;
+      }
+      cb(null, results);
+    });
 };
 
 const create = (table, data, cb) => {
@@ -47,18 +69,6 @@ const create = (table, data, cb) => {
 const read = (table, column, value, cb) => {
   connection.query(
     'SELECT * FROM ?? WHERE ?? = ?', [table, column, value], (err, results) => {
-      if (err) {
-        cb(err);
-        return;
-      }
-      cb(null, results);
-    });
-};
-
-const shiftread = (table, column, value, cb) => {
-  connection.query(
-    'SELECT * FROM ?? JOIN users ON sleep.userid = users.id WHERE ?? = ?',
-    [table, column, value], (err, results) => {
       if (err) {
         cb(err);
         return;
@@ -85,9 +95,9 @@ const _delete = (table, column, value, cb) => {
 module.exports = {
   showtable: showtable,
   table: table,
+  shiftread: shiftread,
   create: create,
   read: read,
-  shiftread: shiftread,
   update: update,
   delete: _delete,
 };
