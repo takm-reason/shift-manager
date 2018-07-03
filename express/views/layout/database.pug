@@ -2,15 +2,27 @@ extends ./../layout.pug
 
 block content
   if main
-    h1= `${main.title}`
+    h1= `${main.title} columns`
     div.table-responsive
       table.table.table-striped
         thead
           tr
-            each val, index in main.results[0]
+            each val, index in main.column[0]
               th= index
         tbody
-          each date in main.results
+          each date in main.column
+            tr
+              each val, index in date
+                td= val
+    h1= `${main.title} table`
+    div.table-responsive
+      table.table.table-striped
+        thead
+          tr
+            each val, index in main.table[0]
+              th= index
+        tbody
+          each date in main.table
             tr
               each val, index in date
                 td= val

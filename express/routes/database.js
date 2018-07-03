@@ -38,6 +38,15 @@ router.get('/:table', (req, res, next) => {
         callback(err, results);
       });
     },
+    column: (callback) => {
+      getModel().showcolumn(req.params.table, (err, results) => {
+        if (err) {
+          next(err);
+          return;
+        }
+        callback(err, results);
+      });
+    },
     tablelist: (callback) => {
       getModel().showtable((err, results) => {
         if (err) {
@@ -65,7 +74,8 @@ router.get('/:table', (req, res, next) => {
       main: {
         type: 'table',
         title: req.params.table,
-        results: results.table,
+        table: results.table,
+        column: results.column,
       },
     });
   });
