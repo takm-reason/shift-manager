@@ -83,7 +83,14 @@ router.get('/:table', (req, res, next) => {
 });
 
 router.post('/:table', (req, res, next) => {
-  res.send(`post!!!!${req.params.table}!!!!`);
+  getModel().create(req.params.table, req.body, (err) => {
+      if (err) {
+        next(err);
+        return;
+      }
+    },
+    res.redirect(`/database/${req.params.table}`)
+  );
 });
 
 module.exports = router;
