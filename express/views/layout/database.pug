@@ -3,7 +3,6 @@ extends ./../layout.pug
 block content
   if main
     h1 insert
-    hr
     div.table-responsive
       form(action=`/database/${req.params.table}` method="POST")
         table.table.table-striped
@@ -16,7 +15,7 @@ block content
               each date in main.column
                 td.p-1
                   if !date.Extra
-                    input.form-control(type="text" id=`input${date.Field}` placeholder=`${date.Type}`)
+                    input.form-control(type="text" name=`${date.Field}` placeholder=`${date.Type}`)
         .text-right
           button.btn.btn-success(type="submit") insert
     h1= `${main.title} columns`
