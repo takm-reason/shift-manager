@@ -88,7 +88,7 @@ router.post('/:table', (req, res, next) => {
         next(err);
         return;
       } else {
-        res.redirect(`/database/${req.params.table}`)
+        res.redirect(`/database/${req.params.table}`);
       }
     },
   );
