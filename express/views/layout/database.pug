@@ -2,6 +2,24 @@ extends ./../layout.pug
 
 block content
   if main
+    h1 insert
+    hr
+    table.table.table-striped
+      thead
+        tr
+          th Field
+          th Type
+          th Input
+      tbody
+        each data in main.column
+          tr
+            th= data.Field
+            th= data.Type
+            if data.Extra
+              th
+            if !data.Extra
+              th
+                input
     h1= `${main.title} columns`
     div.table-responsive
       table.table.table-striped
