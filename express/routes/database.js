@@ -61,6 +61,7 @@ router.get('/:table', (req, res, next) => {
       throw err;
     }
     res.render('layout/database.pug', {
+      req: req,
       title: 'Express',
       nav: true,
       side: results.tablelist.map((result) => {
@@ -79,6 +80,10 @@ router.get('/:table', (req, res, next) => {
       },
     });
   });
+});
+
+router.post('/:table', (req, res, next) => {
+  res.send(`post!!!!${req.params.table}!!!!`);
 });
 
 module.exports = router;
