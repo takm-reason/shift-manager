@@ -3,6 +3,7 @@
 
 # Setup
 git clone https://github.com/takm-reason/shift-manager.git
+
 docker-compose up -d --build
 
 # Usage
