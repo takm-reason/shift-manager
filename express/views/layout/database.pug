@@ -54,8 +54,17 @@ block content
           tr
             each val, index in main.table[0]
               th= index
+            th delete
         tbody
           each date in main.table
             tr
               each val, index in date
-                td.p-1= val
+                td.p-2= val
+              td.p-0
+                form(action=`/database/${req.params.table}/delete` method="POST")
+                  input.sr-only(
+                    type="text"
+                    name="id"
+                    value=`${date.id}`
+                  )
+                  button.btn.btn-danger(type="submit") delete
