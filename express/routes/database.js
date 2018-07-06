@@ -94,4 +94,16 @@ router.post('/:table', (req, res, next) => {
   );
 });
 
+router.post('/:table/delete', (req, res, next) => {
+  getModel().delete(req.params.table, 'id', req.body.id, (err) => {
+      if (err) {
+        next(err);
+        return;
+      } else {
+        res.redirect(`/database/${req.params.table}`);
+      }
+    },
+  );
+});
+
 module.exports = router;
