@@ -60,6 +60,7 @@ router.get('/:table', (req, res, next) => {
     if (err) {
       throw err;
     }
+    console.log(results.table);
     res.render('layout/database.pug', {
       req: req,
       title: 'Express',
