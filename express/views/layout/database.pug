@@ -15,7 +15,24 @@ block content
               each date in main.column
                 td.p-1
                   if !date.Extra
-                    input.form-control(type="text" name=`${date.Field}` placeholder=`${date.Type}`)
+                    if date.Type == "date"
+                      input.form-control(
+                        type="text"
+                        name=`${date.Field}`
+                        placeholder="00/00/00"
+                      )
+                    else if date.Type == "time"
+                      input.form-control(
+                        type="text"
+                        name=`${date.Field}`
+                        placeholder="00:00:00"
+                      )
+                    else
+                      input.form-control(
+                        type="text"
+                        name=`${date.Field}`
+                        placeholder=`${date.Type}`
+                      )
         .text-right
           button.btn.btn-success(type="submit") insert
     h1= `${main.title} columns`
