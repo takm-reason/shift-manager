@@ -59,7 +59,10 @@ block content
           each date in main.table
             tr
               each val, index in date
-                td.p-2= val
+                if index == "date"
+                  td.p-2= val.toLocaleString()
+                else
+                  td.p-2= val
               td.p-0
                 form(action=`/database/${req.params.table}/delete` method="POST")
                   input.sr-only(
