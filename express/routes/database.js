@@ -1,6 +1,7 @@
 const express = require('express');
 const router = new express.Router();
 const async = require('async');
+const view = require('./view.json');
 
 const getModel = () => {
   return require(`./model-mysql`);
@@ -13,16 +14,13 @@ router.get('/', (req, res, next) => {
       next(err);
       return;
     }
-    res.render('layout/database.pug', {
-      title: 'Express',
-      nav: true,
-      side: results.map((result) => {
-        return {
-          text: result.Tables_in_bookshelf,
-          href: `./database/${result.Tables_in_bookshelf}`,
-        };
-      }),
+    view.side = results.map((result) => {
+      return {
+        text: result.Tables_in_bookshelf,
+        href: `./database/${result.Tables_in_bookshelf}`,
+      };
     });
+    res.render('layout/database.pug', view);
   });
 });
 
