@@ -1,5 +1,6 @@
 {
     "title": "Express",
     "nav": true,
-    "side": []
+    "side": [],
+    "main": null
 }

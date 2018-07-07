@@ -14,13 +14,18 @@ router.get('/', (req, res, next) => {
       next(err);
       return;
     }
-    view.side = results.map((result) => {
-      return {
-        text: result.Tables_in_bookshelf,
-        href: `./database/${result.Tables_in_bookshelf}`,
-      };
+    res.render('layout/database.pug', {
+      req: req,
+      title: view.title,
+      nav: view.nav,
+      side: results.map((result) => {
+        return {
+          text: result.Tables_in_bookshelf,
+          href: `./database/${result.Tables_in_bookshelf}`,
+        };
+      }),
+      main: view.main,
     });
-    res.render('layout/database.pug', view);
   });
 });
 
@@ -58,11 +63,10 @@ router.get('/:table', (req, res, next) => {
     if (err) {
       throw err;
     }
-    console.log(results.table);
     res.render('layout/database.pug', {
       req: req,
-      title: 'Express',
-      nav: true,
+      title: view.title,
+      nav: view.nav,
       side: results.tablelist.map((result) => {
         return {
           text: result.Tables_in_bookshelf,
