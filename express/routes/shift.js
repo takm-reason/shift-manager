@@ -42,6 +42,7 @@ router.get('/', (req, res, next) => {
       throw err;
     }
     res.render('layout/shift.pug', {
+      req: req,
       title: 'Express',
       nav: true,
       side: [],

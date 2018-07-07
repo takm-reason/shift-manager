@@ -26,6 +26,7 @@ router.get('/', (req, res, next) => {
       res.ridirect('login');
     }
     res.render('layout/userlist.pug', {
+      req: req,
       title: 'Bookshelf',
       nav: true,
       side: [],
