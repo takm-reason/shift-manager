@@ -1,6 +1,7 @@
 const express = require('express');
 const router = new express.Router();
 const hash = require('./../passport').hash;
+const view = require('./view.json');
 
 const getModel = () => {
   return require(`./model-mysql`);
@@ -27,9 +28,9 @@ router.get('/', (req, res, next) => {
     }
     res.render('layout/userlist.pug', {
       req: req,
-      title: 'Bookshelf',
-      nav: true,
-      side: [],
+      title: view.title,
+      nav: view.nav,
+      side: view.side,
       main: {
         users: entities,
       },

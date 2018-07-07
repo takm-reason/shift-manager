@@ -1,5 +1,6 @@
 const express = require('express');
 const router = new express.Router();
+const view = require('./view.json');
 
 const getModel = () => {
   return require(`./model-mysql`);
@@ -15,9 +16,9 @@ router.get('/', (req, res, next) => {
     }
     res.render('layout/sleep.pug', {
       req: req,
-      title: 'Express',
-      nav: true,
-      side: [],
+      title: view.title,
+      nav: view.nav,
+      side: view.side,
       main: {
         results: results,
     },
