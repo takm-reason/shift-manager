@@ -14,6 +14,7 @@ router.get('/', (req, res, next) => {
       return;
     }
     res.render('layout/sleep.pug', {
+      req: req,
       title: 'Express',
       nav: true,
       side: [],
