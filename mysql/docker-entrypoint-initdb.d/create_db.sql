@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `bookshelf`.`plans` (
   `in` time NOT NULL,
   `out` time NOT NULL,
   `note` varchar(30),
-  `shop` int(6) NOT NULL,
+  `shop` int(6),
   `userid` int(6) NOT NULL,
   PRIMARY KEY (`id`)
 );
@@ -65,5 +65,15 @@ INSERT INTO `bookshelf`.`plans` (
   '00:00:00',
   '16時から出勤可能',
   '0',
+  '3'
+);
+
+INSERT INTO `bookshelf`.`plans` (
+  `date`, `in`, `out`, `note`, `userid`
+) VALUES (
+  '2018-05-05',
+  '00:00:00',
+  '00:00:00',
+  '16時から出勤可能',
   '3'
 );
