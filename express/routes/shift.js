@@ -19,18 +19,8 @@ router.get('/', (req, res, next) => {
         callback(err, results);
       });
     },
-    sleep: (callback) => {
-      getModel().table(`sleep`, (err, results) => {
-        if (err) {
-          next(err);
-          return;
-        }
-        callback(err, results);
-      });
-    },
-    shift: (callback) => {
-      getModel().table(`shift`,
-      (err, results) => {
+    plans: (callback) => {
+      getModel().table(`plans`, (err, results) => {
         if (err) {
           next(err);
           return;
