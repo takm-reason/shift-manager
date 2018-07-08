@@ -47,7 +47,7 @@ INSERT INTO `bookshelf`.`users` (
 );
 
 INSERT INTO `bookshelf`.`plans` (
-  `date`, `in`, `out`, `note`, `userid`
+  `date`, `in`, `out`, `note`, `shop`, `userid`
 ) VALUES (
   '2018-05-06',
   '00:00:00',
@@ -58,7 +58,7 @@ INSERT INTO `bookshelf`.`plans` (
 );
 
 INSERT INTO `bookshelf`.`plans` (
-  `date`, `in`, `out`, `note`, `userid`
+  `date`, `in`, `out`, `note`, `shop`, `userid`
 ) VALUES (
   '2018-05-05',
   '00:00:00',
