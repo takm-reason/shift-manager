@@ -8,7 +8,7 @@ const getModel = () => {
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  getModel().read(`sleep`, `userid`, req.user.id,
+  getModel().read(`plans`, `userid`, req.user.id,
   (err, results) => {
     if (err) {
       next(err);
@@ -42,8 +42,9 @@ const insert = (req, next) => {
     insertdate.in = req.body.insert[req.body.insertlength];
     insertdate.out = req.body.insert[req.body.insertlength];
     insertdate.note = '';
+    insertdate.shop = 0;
     insertdate.userid = req.user.id;
-    getModel().create('sleep', insertdate, (err) => {
+    getModel().create('plans', insertdate, (err) => {
       if (err) {
         next(err);
         return;
@@ -58,7 +59,7 @@ const _delete = (req, next) => {
   if (req.body.deletelength >= 1) {
     req.body.deletelength = req.body.deletelength - 1;
     getModel().delete(
-      'sleep', 'id', req.body.delete[req.body.deletelength], (err) => {
+      'plans', 'id', req.body.delete[req.body.deletelength], (err) => {
       if (err) {
         next(err);
         return;
