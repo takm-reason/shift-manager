@@ -11,22 +11,13 @@ CREATE TABLE IF NOT EXISTS `bookshelf`.`users` (
   PRIMARY KEY (`id`)
 );
 
-CREATE TABLE IF NOT EXISTS `bookshelf`.`sleep` (
+CREATE TABLE IF NOT EXISTS `bookshelf`.`plans` (
   `id` int(6) unsigned NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `in` time NOT NULL,
   `out` time NOT NULL,
   `note` varchar(30),
-  `userid` int(6) NOT NULL,
-  PRIMARY KEY (`id`)
-);
-
-CREATE TABLE IF NOT EXISTS `bookshelf`.`shift` (
-  `id` int(6) unsigned NOT NULL AUTO_INCREMENT,
-  `date` date NOT NULL,
-  `in` time NOT NULL,
-  `out` time NOT NULL,
-  `shop` int(6),
+  `shop` int(6) NOT NULL,
   `userid` int(6) NOT NULL,
   PRIMARY KEY (`id`)
 );
@@ -55,32 +46,24 @@ INSERT INTO `bookshelf`.`users` (
   TRUE
 );
 
-INSERT INTO `bookshelf`.`sleep` (
+INSERT INTO `bookshelf`.`plans` (
   `date`, `in`, `out`, `note`, `userid`
 ) VALUES (
   '2018-05-06',
   '00:00:00',
   '00:00:00',
   '18時から出勤可能',
+  '0',
   '3'
 );
 
-INSERT INTO `bookshelf`.`sleep` (
+INSERT INTO `bookshelf`.`plans` (
   `date`, `in`, `out`, `note`, `userid`
 ) VALUES (
   '2018-05-05',
   '00:00:00',
   '00:00:00',
   '16時から出勤可能',
-  '3'
-);
-
-INSERT INTO `bookshelf`.`shift` (
-  `date`, `in`, `out`, `shop`, `userid`
-) VALUES (
-  '2018-05-18',
-  '08:00:00',
-  '17:00:00',
   '0',
   '3'
 );
