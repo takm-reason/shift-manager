@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * 単純な文字列のパーサを生成する
@@ -5,7 +6,7 @@
  * @param {String} str
  * @return {Function} parser
  */
-token = (str) => {
+const token = (str) => {
     const len = str.length;
 
     return (target, position) => {
@@ -24,7 +25,7 @@ token = (str) => {
    * @param {Function} parser
    * @return {Function}
    */
-   many = (parser) => {
+   const many = (parser) => {
     return (target, position) =>{
       const result = [];
 
@@ -47,7 +48,7 @@ token = (str) => {
    * @param {Array} parsers... パーサの配列
    * @return {Function}
    */
-   choice = (...theArgs) => {
+   const choice = (...theArgs) => {
     const parsers = theArgs;
 
     return (target, position) => {
@@ -69,7 +70,7 @@ token = (str) => {
    * @param {Array} parsers... 結合するパーサの配列
    * @return {Function} パーサ
    */
-   seq = (...theArgs) => {
+   const seq = (...theArgs) => {
     let parsers = theArgs;
 
     return (target, position) => {
@@ -95,7 +96,7 @@ token = (str) => {
    * @param {RegExp} regexp
    * @return {Function}
    */
-   regex = (regexp) => {
+   const regex = (regexp) => {
     regexp = new RegExp(
         '^(?:' + regexp.source + ')',
         regexp.ignoreCase ? 'i' : ''
@@ -119,7 +120,7 @@ token = (str) => {
    * @param {Boolean} [inverse]
    * @return {Function}
    */
-   char = (str, inverse) => {
+   const char = (str, inverse) => {
     if (arguments.length < 2) {
       inverse = false;
     }
@@ -144,7 +145,7 @@ token = (str) => {
    * @param {Function} fn
    * @return {Function}
    */
-   lazy = (fn) => {
+   const lazy = (fn) => {
     let parser = null;
     return (target, position) => {
       if (!parser) {
@@ -159,7 +160,7 @@ token = (str) => {
    * @param {Function} parser
    * @return {Function}
    */
-   option = (parser) =>{
+   const option = (parser) =>{
     return (target, position) => {
       let result = parser(target, position);
       if (result[0]) {
@@ -175,7 +176,7 @@ token = (str) => {
    * @param {Function} fn
    * @return {Function}
    */
-   map = (parser, fn) => {
+   const map = (parser, fn) => {
     return (target, position) => {
       let result = parser(target, position);
       if (result[0]) {
@@ -191,7 +192,7 @@ token = (str) => {
    * @param {Function} fn
    * @return {Function}
    */
-   filter = (parser, fn) => {
+   const filter = (parser, fn) => {
     return (target, position) => {
       let result = parser(target, position);
       if (result[0]) {
@@ -200,17 +201,4 @@ token = (str) => {
         return result;
       }
     };
-  };
-
-  module.exports = {
-    token: token,
-    many: many,
-    choice: choice,
-    seq: seq,
-    regex: regex,
-    lazy: lazy,
-    char: char,
-    option: option,
-    map: map,
-    filter: filter,
   };
