@@ -56,6 +56,27 @@ const shiftread = (table, column, value, cb) => {
     });
 };
 
+const join = (
+  lefttable, leftcolumn,
+  righttable, rightcolumn,
+  column, value, cd) => {
+  connection.query(
+    'SELECT * FROM ?? JOIN ?? ON ??.?? = ??.?? WHERE ?? = ?',
+    [
+      lefttable, righttable,
+      lefttable, leftcolumn,
+      righttable, rightcolumn,
+      column, value,
+    ], (err, results) => {
+      if (err) {
+        cb(err);
+        return;
+      }
+      cb(null, results);
+    }
+  );
+};
+
 const create = (table, data, cb) => {
   connection.query('INSERT INTO ?? SET ?', [table, data], (err, res) => {
     if (err) {
@@ -96,7 +117,7 @@ module.exports = {
   showtable: showtable,
   showcolumn: showcolumn,
   table: table,
-  shiftread: shiftread,
+  join: join,
   create: create,
   read: read,
   update: update,
