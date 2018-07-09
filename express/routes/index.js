@@ -1,5 +1,6 @@
 const express = require('express');
 const router = new express.Router();
+const async = require('async');
 const view = require('./view.json');
 
 const getModel = () => {
@@ -8,11 +9,20 @@ const getModel = () => {
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  getModel().read(`plans`, `userid`, req.user.id,
-  (err, results) => {
+  async.parallel({
+    plans: (callback) => {
+      getModel().read(`plans`, `userid`, req.user.id,
+      (err, results) => {
+        if (err) {
+          next(err);
+          return;
+        }
+        callback(err, results);
+      });
+    },
+  }, (err, results) => {
     if (err) {
-      next(err);
-      return;
+      throw err;
     }
     res.render('layout/index.pug', {
       req: req,
@@ -28,47 +38,12 @@ router.get('/', (req, res, next) => {
         type: 'table',
         title: '休み希望を入力するカレンダー',
         id: 'calendarform',
-        results: results,
+        results: results.plans,
       },
     });
   });
 });
 
-const insert = (req, next) => {
-  if (req.body.insertlength >= 1) {
-    req.body.insertlength = req.body.insertlength - 1;
-    const insertdate = {};
-    insertdate.date = req.body.insert[req.body.insertlength];
-    insertdate.in = req.body.insert[req.body.insertlength];
-    insertdate.out = req.body.insert[req.body.insertlength];
-    insertdate.note = '';
-    insertdate.shop = 0;
-    insertdate.userid = req.user.id;
-    getModel().create('plans', insertdate, (err) => {
-      if (err) {
-        next(err);
-        return;
-      }
-    });
-    insert(req, next);
-  }
-  return;
-};
-
-const _delete = (req, next) => {
-  if (req.body.deletelength >= 1) {
-    req.body.deletelength = req.body.deletelength - 1;
-    getModel().delete(
-      'plans', 'id', req.body.delete[req.body.deletelength], (err) => {
-      if (err) {
-        next(err);
-        return;
-      }
-    });
-    _delete(req, next);
-  }
-  return;
-};
 
 router.post('/', (req, res, next) => {
   console.log(req.body);
@@ -89,14 +64,3 @@ router.post('/', (req, res, next) => {
 });
 
 module.exports = router;
-
-/* GET home page. */
-// router.get('/', (req, res, next) => {
-//   getModel().read('1', (err, entity) => {
-//     if (err) {
-//       next(err);
-//       return;
-//     }
-//     res.render('index', {title: entity.username});
-//   });
-// });
