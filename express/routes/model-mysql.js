@@ -46,7 +46,7 @@ const table = (table, cb) => {
 
 const shiftread = (table, column, value, cb) => {
   connection.query(
-    'SELECT * FROM ?? JOIN users ON sleep.userid = users.id WHERE ?? = ?',
+    'SELECT * FROM ?? JOIN users ON plans.userid = users.id WHERE ?? = ?',
     [table, column, value], (err, results) => {
       if (err) {
         cb(err);
@@ -61,11 +61,11 @@ const join = (
   righttable, rightcolumn,
   column, value, cd) => {
   connection.query(
-    'SELECT * FROM ?? JOIN ?? ON ??.?? = ??.?? WHERE ?? = ?',
+    'SELECT * FROM ?? JOIN ?? ON ?? = ?? WHERE ?? = ?',
     [
       lefttable, righttable,
-      lefttable, leftcolumn,
-      righttable, rightcolumn,
+      leftcolumn,
+      rightcolumn,
       column, value,
     ], (err, results) => {
       if (err) {
@@ -117,6 +117,7 @@ module.exports = {
   showtable: showtable,
   showcolumn: showcolumn,
   table: table,
+  shiftread: shiftread,
   join: join,
   create: create,
   read: read,
