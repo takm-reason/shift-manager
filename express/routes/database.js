@@ -9,16 +9,25 @@ const getModel = () => {
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  getModel().showtable((err, results) => {
+  async.parallel({
+    tablelist: (callback) => {
+      getModel().showtable((err, results) => {
+        if (err) {
+          next(err);
+          return;
+        }
+        callback(err, results);
+      });
+    },
+  }, (err, results) => {
     if (err) {
-      next(err);
-      return;
+      throw err;
     }
     res.render('layout/database.pug', {
       req: req,
       title: view.title,
       nav: view.nav,
-      side: results.map((result) => {
+      side: results.tablelist.map((result) => {
         return {
           text: result.Tables_in_bookshelf,
           href: `./database/${result.Tables_in_bookshelf}`,

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = new express.Router();
+const async = require('async');
 const view = require('./view.json');
 
 const getModel = () => {

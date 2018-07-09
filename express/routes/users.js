@@ -1,7 +1,8 @@
 const express = require('express');
 const router = new express.Router();
-const hash = require('./../passport').hash;
+const async = require('async');
 const view = require('./view.json');
+const hash = require('./../passport').hash;
 
 const getModel = () => {
   return require(`./model-mysql`);
