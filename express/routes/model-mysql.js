@@ -57,15 +57,14 @@ const shiftread = (table, column, value, cb) => {
 };
 
 const join = (
-  lefttable, leftcolumn,
-  righttable, rightcolumn,
-  column, value, cd) => {
+  lefttable, righttable,
+  leftcolumn, rightcolumn,
+  column, value, cb) => {
   connection.query(
     'SELECT * FROM ?? JOIN ?? ON ?? = ?? WHERE ?? = ?',
     [
       lefttable, righttable,
-      leftcolumn,
-      rightcolumn,
+      leftcolumn, rightcolumn,
       column, value,
     ], (err, results) => {
       if (err) {

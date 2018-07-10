@@ -12,14 +12,14 @@ CREATE TABLE IF NOT EXISTS `bookshelf`.`users` (
 );
 
 CREATE TABLE IF NOT EXISTS `bookshelf`.`plans` (
-  `plansid` int(6) unsigned NOT NULL AUTO_INCREMENT,
+  `planid` int(6) unsigned NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `in` time NOT NULL,
   `out` time NOT NULL,
   `note` varchar(30),
   `shop` int(6),
   `userid` int(6) NOT NULL,
-  PRIMARY KEY (`plansid`)
+  PRIMARY KEY (`planid`)
 );
 
 INSERT INTO `bookshelf`.`users` (

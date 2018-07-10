@@ -133,4 +133,21 @@ router.get('/join/:table/:column/:value', (req, res, next) => {
   );
 });
 
+router.get(
+  '/join/:lefttable/:righttable/:leftcolumn/:rightcolumn/:column/:value',
+  (req, res, next) => {
+  getModel().join(
+    req.params.lefttable, req.params.righttable,
+    req.params.leftcolumn, req.params.rightcolumn,
+    req.params.column, req.params.value,
+    (err, results) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.send(results);
+    }
+  );
+});
+
 module.exports = router;
