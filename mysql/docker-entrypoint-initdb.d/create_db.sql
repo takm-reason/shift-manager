@@ -4,22 +4,22 @@ CREATE DATABASE IF NOT EXISTS `bookshelf`
 USE `bookshelf`;
 
 CREATE TABLE IF NOT EXISTS `bookshelf`.`users` (
-  `id` int(6) unsigned NOT NULL AUTO_INCREMENT,
+  `userid` int(6) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
   `password` varchar(128) NOT NULL,
   `root` boolean NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`userid`)
 );
 
 CREATE TABLE IF NOT EXISTS `bookshelf`.`plans` (
-  `id` int(6) unsigned NOT NULL AUTO_INCREMENT,
+  `plansid` int(6) unsigned NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `in` time NOT NULL,
   `out` time NOT NULL,
   `note` varchar(30),
   `shop` int(6),
   `userid` int(6) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`plansid`)
 );
 
 INSERT INTO `bookshelf`.`users` (

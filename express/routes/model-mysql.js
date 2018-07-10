@@ -46,7 +46,7 @@ const table = (table, cb) => {
 
 const shiftread = (table, column, value, cb) => {
   connection.query(
-    'SELECT * FROM ?? JOIN users ON plans.userid = users.id WHERE ?? = ?',
+    'SELECT * FROM ?? JOIN users ON plans.userid = users.userid WHERE ?? = ?',
     [table, column, value], (err, results) => {
       if (err) {
         cb(err);
