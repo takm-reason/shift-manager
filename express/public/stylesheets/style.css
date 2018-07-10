@@ -90,9 +90,10 @@ main {
 
  .sidebar {
   position: fixed;
-  top: 0;
+  top: 56px; /* Height of navbar */
   bottom: 0;
   left: 0;
+  height: calc(100vh - 56px);
   z-index: 100; /* Behind the navbar */
   padding: 0;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
