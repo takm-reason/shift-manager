@@ -118,21 +118,6 @@ router.post('/:table/delete', (req, res, next) => {
   );
 });
 
-router.get('/join/:table/:column/:value', (req, res, next) => {
-  getModel().shiftread(
-    req.params.table,
-    req.params.column,
-    req.params.value,
-    (err, results) => {
-      if (err) {
-        next(err);
-        return;
-      }
-      res.send(results);
-    }
-  );
-});
-
 router.get(
   '/join/:lefttable/:righttable/:leftcolumn/:rightcolumn/:column/:value',
   (req, res, next) => {

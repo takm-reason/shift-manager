@@ -44,18 +44,6 @@ const table = (table, cb) => {
   });
 };
 
-const shiftread = (table, column, value, cb) => {
-  connection.query(
-    'SELECT * FROM ?? JOIN users ON plans.userid = users.userid WHERE ?? = ?',
-    [table, column, value], (err, results) => {
-      if (err) {
-        cb(err);
-        return;
-      }
-      cb(null, results);
-    });
-};
-
 const join = (
   lefttable, righttable,
   leftcolumn, rightcolumn,
@@ -116,7 +104,6 @@ module.exports = {
   showtable: showtable,
   showcolumn: showcolumn,
   table: table,
-  shiftread: shiftread,
   join: join,
   create: create,
   read: read,
