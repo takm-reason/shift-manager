@@ -2,6 +2,24 @@ extends ./../layout.pug
 
 block content
   if main
+    h1 今週
+    div.table-responsive
+      table.table.table-striped
+        tr
+          each date in main.week1
+            th= date
+    h1 来週
+    div.table-responsive
+      table.table.table-striped
+        tr
+          each date in main.week2
+            th= date
+    h1 再来週
+    div.table-responsive
+      table.table.table-striped
+        tr
+          each date in main.week3
+            th= date
     h1 main
     div.table-responsive
       table.table.table-striped
