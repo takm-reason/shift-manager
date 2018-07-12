@@ -37,7 +37,7 @@ const week = (date) => {
 };
 
 const nextWeek = (date) => {
-  return new Date(date.setDate(date.getDate + 7));
+  return new Date(date.setDate(date.getDate() + 7));
 };
 
 /* GET home page. */
