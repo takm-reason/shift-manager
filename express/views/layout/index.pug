@@ -2,6 +2,12 @@ extends ./../layout.pug
 
 block content
   if main
+    h1 week
+    div.table-responsive
+      table.table.table-striped
+        tr
+          each date in main.week
+            th= date
     h1 main
     div.table-responsive
       table.table.table-striped
