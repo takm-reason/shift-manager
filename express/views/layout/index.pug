@@ -2,25 +2,49 @@ extends ./../layout.pug
 
 block content
   if main
-    h1 今週
+    h1.h3 テスト
+    .table-responsive
+      table.table.table-bordered(style="table-layout: fixed;")
+        tr.p-0
+          th.text-center.p-0 月
+          th.text-center.p-0 火
+          th.text-center.p-0 水
+          th.text-center.p-0 木
+          th.text-center.p-0 金
+          th.text-center.p-0 土
+          th.text-center.p-0 日
+        tr
+          td.text-muted.p-0 9
+            div.text-center 17:00
+            div.text-center 22:00
+          td.text-muted.p-0 10
+          td.text-muted.p-0 11
+          td.text-muted.p-0 12
+            div.text-center 13:00
+            div.text-center 22:00
+          td.text-muted.p-0 13
+          td.text-muted.p-0 14
+          td.text-muted.p-0 15
+
+    h1.h3 今週
     div.table-responsive
       table.table.table-striped(style="table-layout: fixed;")
         tr
           each date in main.week1
             th.text-center= date
-    h1 来週
+    h1.h3 来週
     div.table-responsive
       table.table.table-striped(style="table-layout: fixed;")
         tr
           each date in main.week2
             th.text-center= date
-    h1 再来週
+    h1.h3 再来週
     div.table-responsive
       table.table.table-striped(style="table-layout: fixed;")
         tr
           each date in main.week3
             th.text-center= date
-    h1 main
+    h1.h3 main
     div.table-responsive
       table.table.table-striped
         each val, index in main
