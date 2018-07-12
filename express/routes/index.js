@@ -36,8 +36,13 @@ const week = (date) => {
   return addNextDate([date], nextDate(new Date(date)), 7);
 };
 
-const nextWeek = (date) => {
-  return new Date(date.setDate(date.getDate() + 7));
+const monday3 = (date) => {
+  const date1 = new Date(date);
+  const date2 = new Date(date);
+  date2.setDate(date2.getDate() + 7);
+  const date3 = new Date(date);
+  date3.setDate(date3.getDate() + 14);
+  return [date1, date2, date3];
 };
 
 /* GET home page. */
@@ -70,15 +75,7 @@ router.get('/', (req, res, next) => {
         title: '休み希望を入力するカレンダー',
         id: 'calendarform',
         results: results.plans,
-        week1: week(prevMonday(new Date())).map((date) => {
-          return date.getDate();
-        }),
-        week2: week(prevMonday(nextWeek(new Date()))).map((date) => {
-          return date.getDate();
-        }),
-        week3: week(prevMonday(nextWeek(nextWeek(new Date())))).map((date) => {
-          return date.getDate();
-        }),
+        weeks: monday3(prevMonday(new Date())).map(week),
       },
     });
   });

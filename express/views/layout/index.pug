@@ -2,7 +2,7 @@ extends ./../layout.pug
 
 block content
   if main
-    h1.h3 テスト
+    h1.h3 シフト
     .table-responsive
       table.table.table-bordered(style="table-layout: fixed;")
         tr.p-0
@@ -13,37 +13,12 @@ block content
           th.text-center.p-0 金
           th.text-center.p-0 土
           th.text-center.p-0 日
-        tr
-          td.text-muted.p-0 9
-            div.text-center 17:00
-            div.text-center 22:00
-          td.text-muted.p-0 10
-          td.text-muted.p-0 11
-          td.text-muted.p-0 12
-            div.text-center 13:00
-            div.text-center 22:00
-          td.text-muted.p-0 13
-          td.text-muted.p-0 14
-          td.text-muted.p-0 15
-
-    h1.h3 今週
-    div.table-responsive
-      table.table.table-striped(style="table-layout: fixed;")
-        tr
-          each date in main.week1
-            th.text-center= date
-    h1.h3 来週
-    div.table-responsive
-      table.table.table-striped(style="table-layout: fixed;")
-        tr
-          each date in main.week2
-            th.text-center= date
-    h1.h3 再来週
-    div.table-responsive
-      table.table.table-striped(style="table-layout: fixed;")
-        tr
-          each date in main.week3
-            th.text-center= date
+        each week in main.weeks
+          tr
+            each date in week
+              td.text-muted.p-0= date.getDate()
+                div.text-center 17:00
+                div.text-center 22:00
     h1.h3 main
     div.table-responsive
       table.table.table-striped
