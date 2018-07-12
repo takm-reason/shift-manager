@@ -16,7 +16,10 @@ block content
         each week in main.weeks
           tr
             each date in week
-              td.text-muted.p-0= date.getDate()
+              td.text-muted.p-1
+                div
+                  p.m-0(style="float: left;")= date.getDate()
+                  p.m-0.text-right 休
                 div.text-center 17:00
                 div.text-center 22:00
     h1.h3 main
