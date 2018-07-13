@@ -29,3 +29,13 @@ block content
           tr
             th= index
             td= val
+              each val2, index2 in val
+                table
+                  tr
+                    th= index2
+                    td= val2
+                      each val3, index3 in val2
+                        table
+                          tr
+                            th= index3
+                            td= val3
