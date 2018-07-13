@@ -81,15 +81,12 @@ router.post('/', (req, res, next) => {
   // res.send(req.body);
 });
 
-module.exports = router;
+router.get('/month/:year/:month', (req, res, next) => {
+  res.send(`${req.params.year} ${req.params.month}`);
+});
 
-/* GET home page. */
-// router.get('/', (req, res, next) => {
-//   getModel().read('1', (err, entity) => {
-//     if (err) {
-//       next(err);
-//       return;
-//     }
-//     res.render('index', {title: entity.username});
-//   });
-// });
+router.get('/date/:year/:month/:date', (req, res, next) => {
+  res.send(`${req.params.year} ${req.params.month} ${req.params.date}`);
+});
+
+module.exports = router;
