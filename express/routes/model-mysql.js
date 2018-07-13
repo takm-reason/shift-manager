@@ -100,6 +100,18 @@ const _delete = (table, column, value, cb) => {
   connection.query('DELETE FROM ?? WHERE ?? = ?', [table, column, value], cb);
 };
 
+const between = (user, min, max) => {
+  connection.query(
+    'SELECT * FROM plans WHERE userid = ? AND date BETWEEN ? AND ?',
+    [user, min, max], (err, results) => {
+      if (err) {
+        cb(err);
+        return;
+      }
+      cb(null, results);
+    });
+};
+
 module.exports = {
   showtable: showtable,
   showcolumn: showcolumn,
@@ -109,4 +121,5 @@ module.exports = {
   read: read,
   update: update,
   delete: _delete,
+  between: between,
 };
