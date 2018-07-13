@@ -100,7 +100,7 @@ const _delete = (table, column, value, cb) => {
   connection.query('DELETE FROM ?? WHERE ?? = ?', [table, column, value], cb);
 };
 
-const between = (user, min, max) => {
+const between = (user, min, max, cb) => {
   connection.query(
     'SELECT * FROM plans WHERE userid = ? AND date BETWEEN ? AND ?',
     [user, min, max], (err, results) => {

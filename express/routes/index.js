@@ -7,97 +7,81 @@ const getModel = () => {
   return require(`./model-mysql`);
 };
 
-const yesterday = (date) => {
-  return new Date(date.setDate(date.getDate() - 1));
+// 昨日を求める
+const getYesterday = (date) => {
+  const yesterday = new Date(date);
+  return yesterday.setDate(yesterday.getDate() - 1);
 };
 
-const prevMonday = (date) => {
-  if (date.getDay() == 1) {
-    return date;
+// 前回の月曜日を求める
+const getPrevMonday = (date) => {
+  const prevMonday = new Date(date);
+  if (prevMonday.getDay() == 1) {
+    return prevMonday;
   }
-  return prevMonday(yesterday(date));
+  return getPrevMonday(getYesterday(prevMonday));
 };
 
-const nextDate = (date, nextdate = 1) => {
-  return new Date(date.setDate(date.getDate() + nextdate));
+// 一週間後を求める
+const getNextDay = (date) => {
+  const nextDay = new Date(date);
+  return nextDay.setDate(nextDay.getDate() + 7);
 };
 
-const addNextDate = (date, lastDay) => {
-  if (date.length >= 7) {
-    return date;
-  }
-  return addNextDate(
-    date.concat(nextDate(new Date(date[date.length - 1]))),
-    lastDay
-  );
+// 配列の最後の要素の一週間後を配列の最後に追加する
+const addNextDay = (date) => {
+  return date.concat(new Date(getNextDay(date[date.length - 1])));
 };
 
+// 1日後を求める
+const getNextDate = (date) => {
+  const nextDate = new Date(date);
+  return nextDate.setDate(nextDate.getDate() + 1);
+};
+
+// 配列の最後の要素の1日後を配列の最後に追加する
+const addNextDate = (date) => {
+  return date.concat(new Date(getNextDate(date[date.length - 1])));
+};
+
+// 配列が7日間になるまで追加
 const week = (date) => {
-  return addNextDate([date], nextDate(new Date(date)), 7);
-};
-
-const monday3 = (date) => {
-  const date1 = new Date(date);
-  const date2 = new Date(date);
-  date2.setDate(date2.getDate() + 7);
-  const date3 = new Date(date);
-  date3.setDate(date3.getDate() + 14);
-  return [date1, date2, date3];
+  console.log(`week 現在のdate ${date}`);
+  if (date.length == 7) {
+    return date;
+  }
+  return week(addNextDate(date));
 };
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  console.log(week(prevMonday(new Date())).map((date) => {
-    return date.getDate();
-  }));
-  async.parallel({
-    user: (callback) => {
-      getModel().read(`plans`, `userid`, req.user.id,
-      (err, results) => {
-        if (err) {
-          next(err);
-          return;
-        }
-        callback(err, results);
+  getModel().between(req.user.userid, '2018/01/01', '2018/12/31',
+    (err, results) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.render('layout/index.pug', {
+        req: req,
+        title: view.title,
+        nav: view.nav,
+        side: [{
+          text: 'shift',
+          href: `./shift`,
+        },
+        {
+          text: 'sleep',
+          href: `./sleep`,
+        }],
+        main: {
+          results: results,
+          weeks: addNextDay([getPrevMonday(new Date())]).map((date) => {
+            return week([date]);
+          }),
+        },
       });
-    },
-  }, (err, results) => {
-    if (err) {
-      throw err;
     }
-    res.render('layout/index.pug', {
-      req: req,
-      title: view.title,
-      nav: view.nav,
-      side: [],
-      main: {
-        type: 'table',
-        title: '休み希望を入力するカレンダー',
-        id: 'calendarform',
-        results: results.plans,
-        weeks: monday3(prevMonday(new Date())).map(week),
-      },
-    });
-  });
-});
-
-
-router.post('/', (req, res, next) => {
-  console.log(req.body);
-  if (req.body.insertlength == 1) {
-    req.body.insert = [req.body.insert];
-  }
-  if (req.body.deletelength == 1) {
-    req.body.delete = [req.body.delete];
-  }
-  if (req.body.insert) {
-    insert(req, next);
-  }
-  if (req.body.delete) {
-    _delete(req, next);
-  }
-  res.redirect('/');
-  // res.send(req.body);
+  );
 });
 
 module.exports = router;
