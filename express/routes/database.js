@@ -27,12 +27,6 @@ router.get('/', (req, res, next) => {
       req: req,
       title: view.title,
       nav: view.nav,
-      side: results.tablelist.map((result) => {
-        return {
-          text: result.Tables_in_bookshelf,
-          href: `./database/${result.Tables_in_bookshelf}`,
-        };
-      }),
       main: view.main,
     });
   });
@@ -76,14 +70,6 @@ router.get('/:table', (req, res, next) => {
       req: req,
       title: view.title,
       nav: view.nav,
-      side: results.tablelist.map((result) => {
-        return {
-          text: result.Tables_in_bookshelf,
-          href: `./${result.Tables_in_bookshelf}`,
-          active: result.Tables_in_bookshelf == req.params.table
-            ? 'active' : '',
-        };
-      }),
       main: {
         type: 'table',
         title: req.params.table,

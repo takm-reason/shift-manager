@@ -31,7 +31,6 @@ router.get('/', (req, res, next) => {
       req: req,
       title: view.title,
       nav: view.nav,
-      side: view.side,
       main: {
         users: entities,
       },

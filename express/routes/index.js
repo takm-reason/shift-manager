@@ -65,14 +65,6 @@ router.get('/', (req, res, next) => {
         req: req,
         title: view.title,
         nav: view.nav,
-        side: [{
-          text: 'shift',
-          href: `./shift`,
-        },
-        {
-          text: 'sleep',
-          href: `./sleep`,
-        }],
         main: {
           results: results,
           weeks: addNextDay([getPrevMonday(new Date())]).map((date) => {
