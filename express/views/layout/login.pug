@@ -1,13 +1,15 @@
 extends ./../layout.pug
 
 block content
-    form.form-signin(action="/login" method="POST")
-      .text-center.mb-4
-        h1.h3.mb-3.font-weight-normal shift login
-      .form-label-group
-        input.form-control(type="text", name="username", id="username", placeholder="Username")
-        label(for="username") Username
-      .form-label-group
-        input.form-control(type="password", name="password", id="password", placeholder="Password")
-        label(for="password") Password
-      button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
+  section.card.card-cascade.narrower.mb-5.shadow
+    .card-body.card-body-cascade
+      form.form-signin(action="/login" method="POST")
+        .text-center.mb-4
+          h1.h3.mb-3.font-weight-normal shift login
+        .form-label-group
+          input.form-control(type="text", name="username", id="username", placeholder="Username")
+          label(for="username") Username
+        .form-label-group
+          input.form-control(type="password", name="password", id="password", placeholder="Password")
+          label(for="password") Password
+        button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
