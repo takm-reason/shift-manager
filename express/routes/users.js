@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
     if (entities.length == 0) {
       res.ridirect('login');
     }
-    res.render('layout/userlist.pug', {
+    res.render('layout/users.pug', {
       req: req,
       title: view.title,
       nav: view.nav,
@@ -30,7 +30,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  if (req.user.root) {
+  if (!req.user.root) {
     res.redirect('/users');
   }
   req.body.password = hash(req.body.username, req.body.password);
