@@ -86,7 +86,7 @@ const read = (table, column, value, cb) => {
 
 const update = (table, column, value, data, cb) => {
   connection.query(
-    'UPDATE ?? SET ? WHERE ?? = ?', [table, date, column, value], (err) => {
+    'UPDATE ?? SET ? WHERE ?? = ?', [table, data, column, value], (err) => {
       if (err) {
         cb(err);
         return;
