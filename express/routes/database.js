@@ -67,15 +67,6 @@ router.get('/:table', (req, res, next) => {
         callback(err, results);
       });
     },
-    tablelist: (callback) => {
-      getModel().showtable((err, results) => {
-        if (err) {
-          next(err);
-          return;
-        }
-        callback(err, results);
-      });
-    },
   }, (err, results) => {
     if (err) {
       throw err;
