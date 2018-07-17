@@ -8,15 +8,6 @@ const getModel = () => {
   return require(`./model-mysql`);
 };
 
-router.use((req, res, next) => {
-  if (!req.user.root) {
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-  }
-  next();
-});
-
 /* GET users listing. */
 router.get('/', (req, res, next) => {
   getModel().table('users', (err, entities) => {
