@@ -64,7 +64,7 @@ const create = (table, data, cb) => {
 };
 
 const read = (table, column, value, between, min, max, cb) => {
-  if (column == null && between == null) {
+  if (column == null && max == null) {
     connection.query('SELECT * FROM ??', table, (err, results) => {
       if (err) {
         cb(err);
@@ -83,7 +83,7 @@ const read = (table, column, value, between, min, max, cb) => {
         cb(null, results);
       }
     );
-  } else if (between == null) {
+  } else if (max == null) {
     connection.query(
       'SELECT * FROM ?? WHERE ?? = ?',
       [table, column, value],
