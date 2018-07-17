@@ -80,6 +80,7 @@ router.get('/:table', (req, res, next) => {
         title: req.params.table,
         table: results.table,
         column: results.column,
+        section: results.table,
       },
     });
   });
