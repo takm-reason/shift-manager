@@ -1,10 +1,10 @@
 extends ./../layout.pug
 
 block content
-  each date in section
+  each val, index in section
     section.card.card-cascade.narrower.mb-4.shadow
       .card-body.card-body-cascade
-        h1.h3 section.date
+        h1.h3= index
         mixin list(items)
           div.table-responsive
             table.table.table-striped
@@ -14,4 +14,4 @@ block content
                   td= val
                     if val instanceof Object
                       +list(val)
-        +list(date)
+        +list(val)

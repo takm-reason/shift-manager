@@ -9,7 +9,7 @@ const getModel = () => {
 
 const fun = (table) => {
   return (callback) => {
-    getModel().table('users', (err, results) => {
+    getModel().table(table, (err, results) => {
       if (err) {
         return;
       }
@@ -25,18 +25,16 @@ router.get('/', (req, res, next) => {
       next(err);
       return;
     }
+
     const obj = {};
     results.map((date) => {
-      console.log(fun(date.Tables_in_bookshelf));
       obj[date.Tables_in_bookshelf] = fun(date.Tables_in_bookshelf);
-      console.log(obj);
     });
-    async.parallel(
-      obj, (err, results) => {
+
+    async.parallel(obj, (err, results) => {
       if (err) {
         throw err;
       }
-      console.log(results);
       res.render('layout/section.pug', {
         req: req,
         title: view.title,
