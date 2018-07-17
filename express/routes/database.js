@@ -35,7 +35,7 @@ router.get('/', (req, res, next) => {
       if (err) {
         throw err;
       }
-      res.render('layout/section.pug', {
+      res.render('layout/tables.pug', {
         req: req,
         title: view.title,
         nav: view.nav,
