@@ -99,7 +99,14 @@ router.post('/:table', (req, res, next) => {
 });
 
 router.post('/:table/delete', (req, res, next) => {
-  getModel().delete(req.params.table, 'id', req.body.id, (err) => {
+  getModel().delete(req.params.table,
+    Object.keys(req.body).reduce((r, k) =>{
+      return r ? r : k;
+    }, null),
+    Object.keys(req.body).reduce((r, k) => {
+      return r? r : req.body[k];
+    }, null),
+    (err) => {
       if (err) {
         next(err);
         return;

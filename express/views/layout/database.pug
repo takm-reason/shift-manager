@@ -59,7 +59,7 @@ block content
                     form(action=`/database/${req.params.table}/delete` method="POST")
                       input.sr-only(
                         type="text"
-                        name="id"
-                        value=`${date.id}`
+                        name=`${Object.keys(date).reduce((r, k) => { return r ? r : k }, null)}`
+                        value=`${Object.keys(date).reduce((r,k) => { return r ? r : date[k] }, null)}`
                       )
                       button.btn.btn-danger(type="submit") delete
