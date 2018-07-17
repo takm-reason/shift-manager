@@ -4,7 +4,7 @@ block content
   section.card.card-cascade.narrower.mb-5.shadow
     .card-body.card-body-cascade
       if main
-        h1 insert
+        h1.h3 insert
         div.table-responsive
           form(action=`/database/${req.params.table}` method="POST")
             table.table.table-striped
@@ -38,7 +38,7 @@ block content
             .text-right
               button.btn.btn-success(type="submit") insert
 
-        h1= `${main.title} table`
+        h1.h3= `${main.title} table`
         div.table-responsive
           table.table.table-striped
             thead

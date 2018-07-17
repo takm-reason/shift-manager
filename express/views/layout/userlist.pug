@@ -3,7 +3,7 @@ extends ./../layout.pug
 block content
   section.card.card-cascade.narrower.mb-5.shadow
     .card-body.card-body-cascade
-      h3.pt-3 Add user
+      h1.h3.pt-3 Add user
       form.form-inline(action="/users" method="POST")
         .form-group
           label.sr-only(for="username") username
@@ -17,7 +17,7 @@ block content
         .text-right
           button.btn.btn-success(type="submit") add
 
-      h3 Users
+      h1.h3 Users
       div.table-responsive
         table.table.table-striped
           thead
