@@ -1,18 +1,19 @@
 extends ./../layout.pug
 
 block content
-  each val, index in section
+  each results, table in section
     section.card.card-cascade.narrower.mb-4.shadow
       .card-body.card-body-cascade
         h1.h3
-          a(href=`./database/${index}`)= index
-        mixin list(items)
-          div.table-responsive
-            table.table.table-striped
-              each val, index in items
-                tr
+          a(href=`./database/${table}`)= table
+        div.table-responsive
+          table.table.table-striped
+            thead
+              tr
+                each val, index in results[0]
                   th= index
-                  td= val
-                    if val instanceof Object
-                      +list(val)
-        +list(val)
+            tbody
+              each date in results
+                tr
+                  each val, index in date
+                    td.p-1= val

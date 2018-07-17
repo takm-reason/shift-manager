@@ -9,7 +9,7 @@ const getModel = () => {
 
 const fun = (table) => {
   return (callback) => {
-    getModel().table(table, (err, results) => {
+    getModel().showcolumn(table, (err, results) => {
       if (err) {
         return;
       }
