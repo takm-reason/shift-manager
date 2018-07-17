@@ -50,7 +50,7 @@ router.get('/', (req, res, next) => {
 router.get('/:table', (req, res, next) => {
   async.parallel({
     table: (callback) => {
-      getModel().table(req.params.table, (err, results) => {
+      getModel().read(req.params.table, (err, results) => {
         if (err) {
           next(err);
           return;

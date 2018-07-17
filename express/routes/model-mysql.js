@@ -34,16 +34,6 @@ const showcolumn = (table, cb) => {
   });
 };
 
-const table = (table, cb) => {
-  connection.query('SELECT * FROM ??', table, (err, results) => {
-    if (err) {
-      cb(err);
-      return;
-    }
-    return cb(null, results);
-  });
-};
-
 const join = (
   lefttable, righttable,
   leftcolumn, rightcolumn,
@@ -73,15 +63,50 @@ const create = (table, data, cb) => {
   });
 };
 
-const read = (table, column, value, cb) => {
-  connection.query(
-    'SELECT * FROM ?? WHERE ?? = ?', [table, column, value], (err, results) => {
+const read = (table, column, value, between, min, max, cb) => {
+  if (column == null && between == null) {
+    connection.query('SELECT * FROM ??', table, (err, results) => {
       if (err) {
         cb(err);
         return;
       }
-      cb(null, results);
+      return cb(null, results);
     });
+  } else if (column == null) {
+    connection.query(
+      'SELECT * FROM ?? WHERE ?? BETWEEN ? AND ?',
+      [table, between, min, max], (err, results) => {
+        if (err) {
+          cb(err);
+          return;
+        }
+        cb(null, results);
+      }
+    );
+  } else if (between == null) {
+    connection.query(
+      'SELECT * FROM ?? WHERE ?? = ?',
+      [table, column, value],
+      (err, results) => {
+        if (err) {
+          cb(err);
+          return;
+        }
+        cb(null, results);
+      }
+    );
+  } else {
+    connection.query(
+      'SELECT * FROM ?? WHERE ?? = ? AND ?? BETWEEN ? AND ?',
+      [table, column, value, between, min, max], (err, results) => {
+        if (err) {
+          cb(err);
+          return;
+        }
+        cb(null, results);
+      }
+    );
+  }
 };
 
 const update = (table, column, value, data, cb) => {
@@ -92,33 +117,20 @@ const update = (table, column, value, data, cb) => {
         return;
       }
       read(id, cb);
-    });
+    }
+  );
 };
 
 const _delete = (table, column, value, cb) => {
   connection.query('DELETE FROM ?? WHERE ?? = ?', [table, column, value], cb);
 };
 
-const between = (user, min, max, cb) => {
-  connection.query(
-    'SELECT * FROM plans WHERE userid = ? AND date BETWEEN ? AND ?',
-    [user, min, max], (err, results) => {
-      if (err) {
-        cb(err);
-        return;
-      }
-      cb(null, results);
-    });
-};
-
 module.exports = {
   showtable: showtable,
   showcolumn: showcolumn,
-  table: table,
   join: join,
   create: create,
   read: read,
   update: update,
   delete: _delete,
-  between: between,
 };

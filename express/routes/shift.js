@@ -11,7 +11,7 @@ const getModel = () => {
 router.get('/', (req, res, next) => {
   async.parallel({
     users: (callback) => {
-      getModel().table(`users`, (err, results) => {
+      getModel().read(`users`, (err, results) => {
         if (err) {
           next(err);
           return;
@@ -20,7 +20,7 @@ router.get('/', (req, res, next) => {
       });
     },
     plans: (callback) => {
-      getModel().table(`plans`, (err, results) => {
+      getModel().read(`plans`, (err, results) => {
         if (err) {
           next(err);
           return;
