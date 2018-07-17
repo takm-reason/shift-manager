@@ -70,7 +70,6 @@ const create = (table, data, cb) => {
       cb(err);
       return;
     }
-    read(table, 'id', res.insertId, cb);
   });
 };
 
