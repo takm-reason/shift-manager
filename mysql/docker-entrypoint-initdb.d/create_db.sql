@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `bookshelf`.`plans` (
   `planid` int(6) unsigned NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `in` time NOT NULL,
-  `out` time NOT NULL,
+  `length` time NOT NULL,
   `note` varchar(30),
   `shop` int(6),
   `userid` int(6) NOT NULL,
@@ -47,7 +47,7 @@ INSERT INTO `bookshelf`.`users` (
 );
 
 INSERT INTO `bookshelf`.`plans` (
-  `date`, `in`, `out`, `note`, `shop`, `userid`
+  `date`, `in`, `length`, `note`, `shop`, `userid`
 ) VALUES (
   '2018-05-06',
   '00:00:00',
@@ -58,7 +58,7 @@ INSERT INTO `bookshelf`.`plans` (
 );
 
 INSERT INTO `bookshelf`.`plans` (
-  `date`, `in`, `out`, `note`, `shop`, `userid`
+  `date`, `in`, `length`, `note`, `shop`, `userid`
 ) VALUES (
   '2018-05-05',
   '00:00:00',
@@ -69,7 +69,7 @@ INSERT INTO `bookshelf`.`plans` (
 );
 
 INSERT INTO `bookshelf`.`plans` (
-  `date`, `in`, `out`, `note`, `userid`
+  `date`, `in`, `length`, `note`, `userid`
 ) VALUES (
   '2018-05-05',
   '00:00:00',
