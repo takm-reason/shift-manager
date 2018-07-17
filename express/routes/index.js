@@ -76,4 +76,22 @@ router.get('/', (req, res, next) => {
   );
 });
 
+/* GET home page. */
+router.get('/section', (req, res, next) => {
+  getModel().between(req.user.userid, '2018/01/01', '2018/12/31',
+    (err, results) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.render('layout/section.pug', {
+        req: req,
+        title: view.title,
+        nav: view.nav,
+        section: results,
+      });
+    }
+  );
+});
+
 module.exports = router;
