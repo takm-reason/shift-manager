@@ -7,27 +7,43 @@ const getModel = () => {
   return require(`./model-mysql`);
 };
 
+const fun = (table) => {
+  return (callback) => {
+    getModel().table('users', (err, results) => {
+      if (err) {
+        return;
+      }
+      callback(err, results);
+    });
+  };
+};
+
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  async.parallel({
-    tablelist: (callback) => {
-      getModel().showtable((err, results) => {
-        if (err) {
-          next(err);
-          return;
-        }
-        callback(err, results);
-      });
-    },
-  }, (err, results) => {
+  getModel().showtable((err, results) => {
     if (err) {
-      throw err;
+      next(err);
+      return;
     }
-    res.render('layout/database.pug', {
-      req: req,
-      title: view.title,
-      nav: view.nav,
-      main: view.main,
+    const obj = {};
+    results.map((date) => {
+      console.log(fun(date.Tables_in_bookshelf));
+      obj[date.Tables_in_bookshelf] = fun(date.Tables_in_bookshelf);
+      console.log(obj);
+    });
+    async.parallel(
+      obj, (err, results) => {
+      if (err) {
+        throw err;
+      }
+      console.log(results);
+      res.render('layout/section.pug', {
+        req: req,
+        title: view.title,
+        nav: view.nav,
+        main: view.main,
+        section: results,
+      });
     });
   });
 });
