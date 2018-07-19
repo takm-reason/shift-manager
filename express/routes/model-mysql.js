@@ -73,7 +73,7 @@ const table = (table, cb) => {
   });
 };
 
-const read = (table, column, value, between, min, max, cb) => {
+const read = (table, column, value, cb) => {
   connection.query(
     'SELECT * FROM ?? WHERE ?? = ?',
     [table, column, value],
@@ -87,7 +87,7 @@ const read = (table, column, value, between, min, max, cb) => {
   );
 };
 
-const between = (table, between, min, max) => {
+const between = (table, between, min, max, cb) => {
   connection.query(
     'SELECT * FROM ?? WHERE ?? BETWEEN ? AND ?',
     [table, between, min, max], (err, results) => {
@@ -100,7 +100,7 @@ const between = (table, between, min, max) => {
   );
 };
 
-const readbetween = (table, column, value, between, min, max) => {
+const readbetween = (table, column, value, between, min, max, cb) => {
   connection.query(
     'SELECT * FROM ?? WHERE ?? = ? AND ?? BETWEEN ? AND ?',
     [table, column, value, between, min, max], (err, results) => {
@@ -134,7 +134,10 @@ module.exports = {
   showcolumn: showcolumn,
   join: join,
   create: create,
+  table: table,
   read: read,
+  between: between,
+  readbetween: readbetween,
   update: update,
   delete: _delete,
 };

@@ -55,7 +55,7 @@ const week = (date) => {
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  getModel().read(
+  getModel().readbetween(
     'plans', 'userid', req.user.userid, 'date', '2018/01/01', '2018/12/31',
     (err, results) => {
       if (err) {
@@ -79,7 +79,7 @@ router.get('/', (req, res, next) => {
 
 /* GET home page. */
 router.get('/section', (req, res, next) => {
-  getModel().read(
+  getModel().readbetween(
     'plans', 'userid', req.user.userid, 'date', '2018/01/01', '2018/12/31',
     (err, results) => {
       if (err) {

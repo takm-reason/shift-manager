@@ -10,7 +10,7 @@ const getModel = () => {
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {
-  getModel().read('users', (err, entities) => {
+  getModel().table('users', (err, entities) => {
     if (err) {
       next(err);
       return;
