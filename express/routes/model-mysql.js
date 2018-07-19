@@ -63,50 +63,54 @@ const create = (table, data, cb) => {
   });
 };
 
+const table = (table, cb) => {
+  connection.query('SELECT * FROM ??', table, (err, results) => {
+    if (err) {
+      cb(err);
+      return;
+    }
+    return cb(null, results);
+  });
+};
+
 const read = (table, column, value, between, min, max, cb) => {
-  if (column == null && max == null) {
-    connection.query('SELECT * FROM ??', table, (err, results) => {
+  connection.query(
+    'SELECT * FROM ?? WHERE ?? = ?',
+    [table, column, value],
+    (err, results) => {
       if (err) {
         cb(err);
         return;
       }
-      return cb(null, results);
-    });
-  } else if (column == null) {
-    connection.query(
-      'SELECT * FROM ?? WHERE ?? BETWEEN ? AND ?',
-      [table, between, min, max], (err, results) => {
-        if (err) {
-          cb(err);
-          return;
-        }
-        cb(null, results);
+      cb(null, results);
+    }
+  );
+};
+
+const between = (table, between, min, max) => {
+  connection.query(
+    'SELECT * FROM ?? WHERE ?? BETWEEN ? AND ?',
+    [table, between, min, max], (err, results) => {
+      if (err) {
+        cb(err);
+        return;
       }
-    );
-  } else if (max == null) {
-    connection.query(
-      'SELECT * FROM ?? WHERE ?? = ?',
-      [table, column, value],
-      (err, results) => {
-        if (err) {
-          cb(err);
-          return;
-        }
-        cb(null, results);
+      cb(null, results);
+    }
+  );
+};
+
+const readbetween = (table, column, value, between, min, max) => {
+  connection.query(
+    'SELECT * FROM ?? WHERE ?? = ? AND ?? BETWEEN ? AND ?',
+    [table, column, value, between, min, max], (err, results) => {
+      if (err) {
+        cb(err);
+        return;
       }
-    );
-  } else {
-    connection.query(
-      'SELECT * FROM ?? WHERE ?? = ? AND ?? BETWEEN ? AND ?',
-      [table, column, value, between, min, max], (err, results) => {
-        if (err) {
-          cb(err);
-          return;
-        }
-        cb(null, results);
-      }
-    );
-  }
+      cb(null, results);
+    }
+  );
 };
 
 const update = (table, column, value, data, cb) => {
