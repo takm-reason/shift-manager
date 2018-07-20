@@ -7,3 +7,10 @@ mixin list(items)
           td= val
             if val instanceof Object
               +list(val)
+mixin sell(date)
+  td.text-muted.p-1
+    div
+      p.m-0(style="float: left;")= date.getDate()
+      p.m-0.text-right 休
+    div.text-center 17:00
+    div.text-center 22:00
