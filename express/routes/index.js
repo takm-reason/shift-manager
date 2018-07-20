@@ -46,7 +46,6 @@ const addNextDate = (date) => {
 
 // 配列が7日間になるまで追加
 const week = (date) => {
-  console.log(`week 現在のdate ${date}`);
   if (date.length == 7) {
     return date;
   }

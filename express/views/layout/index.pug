@@ -1,6 +1,7 @@
 extends ./../layout.pug
 
 block content
+  include ./../mixin.pug
   section.card.card-cascade.narrower.mb-5.shadow
     .card-body.card-body-cascade
         h1.h3 シフト
@@ -23,16 +24,6 @@ block content
                       p.m-0.text-right 休
                     div.text-center 17:00
                     div.text-center 22:00
-
-  mixin list(items)
-    div.table-responsive
-      table.table.table-striped
-        each val, index in items
-          tr
-            th= index
-            td= val
-              if val instanceof Object
-                +list(val)
   section.card.card-cascade.narrower.mb-5.shadow
     .card-body.card-body-cascade
       h1.h3 weeks

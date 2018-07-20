@@ -1,0 +1,9 @@
+mixin list(items)
+  div.table-responsive
+    table.table.table-striped
+      each val, index in items
+        tr
+          th= index
+          td= val
+            if val instanceof Object
+              +list(val)
