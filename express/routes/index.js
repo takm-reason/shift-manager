@@ -56,7 +56,11 @@ const week = (date) => {
 /* GET home page. */
 router.get('/', (req, res, next) => {
   getModel().readbetween(
-    'plans', 'userid', req.user.userid, 'date', '2018/01/01', '2018/12/31',
+    'plans', 'userid', req.user.userid, 'date',
+    new Date(getPrevMonday(new Date())).toLocaleDateString(),
+    new Date(
+      getNextDay(getNextDay(getPrevMonday(new Date())))
+    ).toLocaleDateString(),
     (err, results) => {
       if (err) {
         next(err);
