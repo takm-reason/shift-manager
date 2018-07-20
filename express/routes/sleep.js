@@ -9,12 +9,13 @@ const getModel = () => {
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  getModel().read(`plans`, `userid`, req.user.id,
+  getModel().read(`plans`, `userid`, req.user.userid,
   (err, results) => {
     if (err) {
       next(err);
       return;
     }
+    console.log(results);
     res.render('layout/sleep.pug', {
       req: req,
       title: view.title,
@@ -32,12 +33,13 @@ const insert = (req, next) => {
     const insertdate = {};
     insertdate.date = req.body.insert[req.body.insertlength];
     insertdate.in = req.body.insert[req.body.insertlength];
-    insertdate.out = req.body.insert[req.body.insertlength];
+    insertdate.length = req.body.insert[req.body.insertlength];
     insertdate.note = '';
     insertdate.shop = 0;
-    insertdate.userid = req.user.id;
+    insertdate.userid = req.user.userid;
     getModel().create('plans', insertdate, (err) => {
       if (err) {
+        console.log(err);
         next(err);
         return;
       }
@@ -51,7 +53,7 @@ const _delete = (req, next) => {
   if (req.body.deletelength >= 1) {
     req.body.deletelength = req.body.deletelength - 1;
     getModel().delete(
-      'plans', 'id', req.body.delete[req.body.deletelength], (err) => {
+      'plans', 'planid', req.body.delete[req.body.deletelength], (err) => {
       if (err) {
         next(err);
         return;
