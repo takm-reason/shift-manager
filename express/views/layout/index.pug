@@ -3,7 +3,6 @@ extends ./../layout.pug
 block content
   section.card.card-cascade.narrower.mb-5.shadow
     .card-body.card-body-cascade
-      if main
         h1.h3 シフト
         .table-responsive
           table.table.table-bordered(style="table-layout: fixed;")
@@ -15,7 +14,7 @@ block content
               th.text-center.p-0 金
               th.text-center.p-0 土
               th.text-center.p-0 日
-            each week in main.weeks
+            each week in weeks
               tr
                 each date in week
                   td.text-muted.p-1
@@ -24,14 +23,21 @@ block content
                       p.m-0.text-right 休
                     div.text-center 17:00
                     div.text-center 22:00
-        h1.h3 main
-        mixin list(items)
-          div.table-responsive
-            table.table.table-striped
-              each val, index in items
-                tr
-                  th= index
-                  td= val
-                    if val instanceof Object
-                      +list(val)
-        +list(main)
+
+  mixin list(items)
+    div.table-responsive
+      table.table.table-striped
+        each val, index in items
+          tr
+            th= index
+            td= val
+              if val instanceof Object
+                +list(val)
+  section.card.card-cascade.narrower.mb-5.shadow
+    .card-body.card-body-cascade
+      h1.h3 weeks
+      +list(weeks)
+  section.card.card-cascade.narrower.mb-5.shadow
+    .card-body.card-body-cascade
+      h1.h3 results
+      +list(results)

@@ -70,12 +70,10 @@ router.get('/', (req, res, next) => {
         req: req,
         title: view.title,
         nav: view.nav,
-        main: {
-          results: results,
-          weeks: addNextDay([getPrevMonday(new Date())]).map((date) => {
-            return week([date]);
-          }),
-        },
+        weeks: addNextDay([getPrevMonday(new Date())]).map((date) => {
+          return week([date]);
+        }),
+        results: results,
       });
     }
   );
