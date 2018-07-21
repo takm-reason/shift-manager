@@ -17,7 +17,7 @@ export default class CalendarFormModel {
   }
 
   @action
-  onCheckDate(sleepId, sleepDate) {
+  setData(sleepId, sleepDate) {
     this.month.onCheckDate(sleepId, sleepDate);
   }
 
