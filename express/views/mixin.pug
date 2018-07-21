@@ -14,3 +14,7 @@ mixin sell(date)
       p.m-0.text-right 休
     div.text-center 17:00
     div.text-center 22:00
+mixin setdata(store, data)
+  script= `${store}.setData(${data})`
+
+  
