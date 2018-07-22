@@ -1,7 +1,6 @@
 const express = require('express');
 const router = new express.Router();
 const async = require('async');
-const view = require('./view.json');
 const hash = require('./../passport').hash;
 
 const getModel = () => {
@@ -20,8 +19,6 @@ router.get('/', (req, res, next) => {
     }
     res.render('layout/users.pug', {
       req: req,
-      title: view.title,
-      nav: view.nav,
       main: {
         users: entities,
       },

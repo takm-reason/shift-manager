@@ -1,7 +1,6 @@
 const express = require('express');
 const router = new express.Router();
 const async = require('async');
-const view = require('./view.json');
 
 const getModel = () => {
   return require(`./model-mysql`);
@@ -37,9 +36,6 @@ router.get('/', (req, res, next) => {
       }
       res.render('layout/tables.pug', {
         req: req,
-        title: view.title,
-        nav: view.nav,
-        main: view.main,
         section: results,
       });
     });
@@ -73,8 +69,6 @@ router.get('/:table', (req, res, next) => {
     }
     res.render('layout/database.pug', {
       req: req,
-      title: view.title,
-      nav: view.nav,
       main: {
         type: 'table',
         title: req.params.table,

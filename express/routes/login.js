@@ -1,7 +1,6 @@
 const express = require('express');
 const router = new express.Router();
 const passport = require('./../passport');
-const view = require('./view.json');
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
@@ -12,10 +11,7 @@ router.get('/login',
   (req, res) => {
     res.render('layout/login.pug', {
       req: req,
-      title: view.title,
-      nav: view.nav,
       side: null,
-      main: view.main,
     });
   }
 );

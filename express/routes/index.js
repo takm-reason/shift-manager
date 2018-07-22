@@ -1,7 +1,6 @@
 const express = require('express');
 const router = new express.Router();
 const async = require('async');
-const view = require('./view.json');
 
 const getModel = () => {
   return require(`./model-mysql`);
@@ -67,8 +66,6 @@ router.get('/', (req, res, next) => {
       }
       res.render('layout/index.pug', {
         req: req,
-        title: view.title,
-        nav: view.nav,
         weeks: addNextDay([getPrevMonday(new Date())]).map((date) => {
           return week([date]);
         }),
@@ -89,8 +86,6 @@ router.get('/section', (req, res, next) => {
       }
       res.render('layout/section.pug', {
         req: req,
-        title: view.title,
-        nav: view.nav,
         section: results,
       });
     }
