@@ -3,26 +3,31 @@ extends ./../layout.pug
 block content
   section.card.card-cascade.narrower.mb-5.shadow
     .card-body.card-body-cascade
-        h1.h3 シフト
-        .table-responsive
-          table.table.table-bordered(style="table-layout: fixed;")
-            tr.p-0
-              th.text-center.p-0 月
-              th.text-center.p-0 火
-              th.text-center.p-0 水
-              th.text-center.p-0 木
-              th.text-center.p-0 金
-              th.text-center.p-0 土
-              th.text-center.p-0 日
-            each week in weeks
-              tr
-                each date in week
-                  td.text-muted.p-1
-                    div
-                      p.m-0(style="float: left;")= date.getDate()
-                      p.m-0.text-right 休
-                    div.text-center 17:00
-                    div.text-center 22:00
+      h1.h3 シフト
+      .table-responsive
+        table.table.table-bordered(style="table-layout: fixed;")
+          tr.p-0
+            th.text-center.p-0 月
+            th.text-center.p-0 火
+            th.text-center.p-0 水
+            th.text-center.p-0 木
+            th.text-center.p-0 金
+            th.text-center.p-0 土
+            th.text-center.p-0 日
+          each week in weeks
+            tr
+              each date in week
+                td.text-muted.p-1
+                  div
+                    p.m-0(style="float: left;")= date.getDate()
+                    p.m-0.text-right 休
+                  div.text-center 17:00
+                  div.text-center 22:00
+  section.card.card-cascade.narrower.mb-5.shadow
+    .card-body.card-body-cascade
+      h1.h3 シフト
+      #twoweek
+      script(src="./dist/twoweek.js")
   section.card.card-cascade.narrower.mb-5.shadow
     .card-body.card-body-cascade
       h1.h3 weeks
