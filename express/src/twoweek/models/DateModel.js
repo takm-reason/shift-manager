@@ -8,10 +8,11 @@ export default class DateModel {
   @observable yasumi = false; // 休み
 
   @action
-  onCheckDate(planid, date) {
-    console.log(new Date(date).getTime());
+  onCheckDate(planid, plandate) {
+    console.log(plandate);
+    console.log(new Date(plandate).getTime());
     console.log(this.date.getTime());
-    if (new Date(date).getTime() == this.date.getTime()) {
+    if (new Date(plandate).getTime() == this.date.getTime()) {
       this.yasumi = true;
     }
   }

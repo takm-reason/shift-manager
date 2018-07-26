@@ -5,7 +5,11 @@ const Date = observer(({date}) => (
   <td className="text-muted p-1">
     <div>
       <p className="m-0" style={{float: 'left'}}>{date.text}</p>
-      <p className="m-0 text-right" style={{visibility: date.yasumi}}>休</p>
+      {
+        date.yasumi
+        ? <p className="m-0 text-right">休</p>
+        : <p className="m-0 text-right" style={{visibility: 'hidden'}}>休</p>
+      }
     </div>
     <div className="text-center">17:00</div>
     <div className="text-center">22:00</div>

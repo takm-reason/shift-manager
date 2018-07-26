@@ -31,9 +31,9 @@ export default class TwoWeekModel {
   @observable date = new Date();
 
   @action
-  setDataTwoWeek(planid, date) {
+  setDataTwoWeek(planid, plandate) {
     this.weeks.map((week) => {
-      week.onCheckDate(planid, date);
+      week.onCheckDate(planid, plandate);
     });
   }
 
