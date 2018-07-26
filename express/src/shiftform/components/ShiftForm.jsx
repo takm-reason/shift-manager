@@ -5,7 +5,7 @@ import {observer} from 'mobx-react';
 import Week from './Week';
 
 @observer
-class CalendarForm extends React.Component {
+class ShiftForm extends React.Component {
   render() {
     return (
       <form action="/" method="POST">
@@ -64,4 +64,4 @@ class CalendarForm extends React.Component {
   }
 }
 
-export default CalendarForm;
+export default ShiftForm;

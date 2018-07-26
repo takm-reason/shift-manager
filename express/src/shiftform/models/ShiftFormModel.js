@@ -2,7 +2,7 @@ import {observable, computed, action} from 'mobx';
 
 import WeekModel from './WeekModel';
 
-export default class CalendarFormModel {
+export default class ShiftFormModel {
   @observable week = {};
   @observable date = new Date();
   @observable users;
@@ -10,19 +10,14 @@ export default class CalendarFormModel {
   @observable shift;
 
   @action
-  addUsers(users) {
-    this.users = users;
-  }
+  setDataUsers(userid, username) {
+    console.log(userid);
+  };
 
   @action
-  addSleep(sleep) {
-    this.sleep = sleep;
-  }
-
-  @action
-  addShift(shift) {
-    this.shift = shift;
-  }
+  setDataPlans(planid, userid) {
+    console.log(planid);
+  };
 
   constructor() {
     this.date = new Date(

@@ -2,7 +2,7 @@ import {observable, computed, action} from 'mobx';
 
 import LineModel from './LineModel';
 
-export default class WeekModel {
+export default class DateModel {
   id = Math.random();
 
   @observable date = {};
