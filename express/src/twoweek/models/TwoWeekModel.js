@@ -31,9 +31,9 @@ export default class TwoWeekModel {
   @observable date = new Date();
 
   @action
-  setDataCalendarform(sleepId, sleepDate) {
+  setData(planid, date) {
     this.weeks.map((week) => {
-      week.onCheckDate(sleepId, sleepDate);
+      week.onCheckDate(planid, date);
     });
   }
 
@@ -49,16 +49,6 @@ export default class TwoWeekModel {
     if (this.weeks[0].hidden) {
       this.displayMonth(-1);
     }
-  }
-
-  @action
-  displayMonth = (i) => {
-    this.date = new Date(
-      this.date.getFullYear(),
-      this.date.getMonth() + i,
-      this.date.getDate()
-    );
-    this.displayMonth(this.date);
   }
 
   constructor() {

@@ -30,7 +30,6 @@ const dateModel = (date) => {
 export default class WeekModel {
   id = Math.random();
   @observable dates = [];
-  @observable hidden = true;
 
   @computed
   get insertCount() {
@@ -49,24 +48,6 @@ export default class WeekModel {
     this.dates.map((date) => {
       date.onCheckDate(sleepId, sleepDate);
     });
-  }
-
-  @action
-  displayMonth(date) {
-    if (
-      (
-        this.dates[0].date.getMonth() == date.getMonth() &&
-        this.dates[0].date.getFullYear() == date.getFullYear()
-      ) ||
-      (
-        this.dates[6].date.getMonth() == date.getMonth() &&
-        this.dates[6].date.getFullYear() == date.getFullYear()
-      )
-    ) {
-      this.hidden = false;
-    } else {
-      this.hidden = true;
-    };
   }
 
   constructor(date) {
