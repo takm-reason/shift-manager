@@ -8,6 +8,6 @@ block content
       #shift
       script(src="./dist/shift.js")
       each date in main.results.users
-        +setdata('users', `${date.userid}, ${date.username}`)
+        +setdata('Users', `${date.userid}, ${date.username}`)
       each date in main.results.plans
-        +setdata('plans', `${date.planid}, ${date.userid}`)
+        +setdata('Plans', `${date.planid}, ${date.userid}`)
