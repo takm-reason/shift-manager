@@ -6,6 +6,8 @@ block content
       h1.h3 シフト
       #twoweek
       script(src="./dist/twoweek.js")
+      each date in results
+        +setdata('TwoWeek', `'${date.planid}', '${date.date}'`)
   section.card.card-cascade.narrower.mb-5.shadow
     .card-body.card-body-cascade
       h1.h3 weeks

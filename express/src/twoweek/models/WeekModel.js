@@ -32,9 +32,9 @@ export default class WeekModel {
   @observable dates = [];
 
   @action
-  onCheckDate(sleepId, sleepDate) {
+  onCheckDate(planid, date) {
     this.dates.map((date) => {
-      date.onCheckDate(sleepId, sleepDate);
+      date.onCheckDate(planid, date);
     });
   }
 
