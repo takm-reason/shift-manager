@@ -27,13 +27,6 @@ class TwoWeek extends React.Component {
             ))}
           </tbody>
         </table>
-        <div className="text-right">
-          <button
-            className="btn btn-success"
-            type="submit">
-            Save
-          </button>
-        </div>
       </div>
     );
   }

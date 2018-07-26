@@ -63,7 +63,7 @@ const addNextDay = (date, lastDay) => {
 
 // 引数の日のfirstMondayから一年後のlastMondayofthemonthまでの7日ごとの配列を返す
 const mondays = (date) => {
-  date = [prevMonday(new Date(date))].concat(nextDate(new Date(date), 7));
+  date = [prevMonday(date)].concat(nextDate(new Date(prevMonday(date)), 7));
   return date;
 };
 
