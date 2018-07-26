@@ -4,11 +4,7 @@ export default class DateModel {
   id = Math.random();
   // javascript Dateオブジェクト
   @observable date = {};
-  @observable value; // postする値
   @observable text; // 日付の数値
-
-  @observable checked = false; // 現在値
-  @observable name = 'insert'; // postのname
 
   @action
   onCheckDate(sleepId, sleepDate) {
