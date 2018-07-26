@@ -37,20 +37,6 @@ export default class TwoWeekModel {
     });
   }
 
-  @action
-  nextMonth = () => {
-    if (this.weeks[this.weeks.length - 1].hidden) {
-      this.displayMonth(1);
-    }
-  }
-
-  @action
-  prevMonth = () => {
-    if (this.weeks[0].hidden) {
-      this.displayMonth(-1);
-    }
-  }
-
   constructor() {
     this.date = new Date(
       this.date.getFullYear(),

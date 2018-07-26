@@ -31,18 +31,6 @@ export default class WeekModel {
   id = Math.random();
   @observable dates = [];
 
-  @computed
-  get insertCount() {
-    return this.dates.filter(
-      (date) => date.name == 'insert' && date.checked).length;
-  }
-
-  @computed
-  get deleteCount() {
-    return this.dates.filter(
-      (date) => date.name == 'delete' && date.checked).length;
-  }
-
   @action
   onCheckDate(sleepId, sleepDate) {
     this.dates.map((date) => {

@@ -14,19 +14,8 @@ export default class DateModel {
     }
   }
 
-  @computed
-  get backgroundColor() {
-    return this.checked == (this.name == 'insert') ? '#5bc0de' : '#ffffff';
-  }
-
-  @computed
-  get color() {
-    return this.checked == (this.name == 'insert') ? '#ffffff' : '#000000';
-  }
-
   constructor(date) {
     this.date = date;
-    this.value = date.toLocaleString();
     this.text = date.getDate();
   }
 }
