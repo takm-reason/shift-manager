@@ -7,7 +7,9 @@ const Date = observer(({date}) => (
       <p className="m-0" style={{float: 'left'}}>{date.text}</p>
       {
         date.yasumi
-        ? <p className="m-0 text-right">休</p>
+        ? <p className="m-0 text-right" style={{
+          backgroundColor: '#ffff00',
+        }}>休</p>
         : <p className="m-0 text-right" style={{visibility: 'hidden'}}>休</p>
       }
     </div>
