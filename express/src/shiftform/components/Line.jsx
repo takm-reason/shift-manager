@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {observer} from 'mobx-react';
 
 const Line = observer(({date}) => (
-  <tr>
+  <tr style={{height: '20px'}}>
     <td colSpan='3'
       rowSpan={date.array}
       hidden={date.hidden}

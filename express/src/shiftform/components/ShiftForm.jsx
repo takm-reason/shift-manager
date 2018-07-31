@@ -9,47 +9,46 @@ class ShiftForm extends React.Component {
   render() {
     return (
       <form action="/" method="POST">
-        <table className="table table-bordered" style={{tableLayout: 'fixed'}}>
-          <thead>
-            <tr>
-            <th
-                className="text-center"
-                colSpan="3"
-              ></th>
-              <th
-                className="text-center"
-                colSpan="3"
-              >6~9</th>
-              <th
-                className="text-center"
-                colSpan="3"
-              >9~12</th>
-              <th
-                className="text-center"
-                colSpan="3"
-              >12~15</th>
-              <th
-                className="text-center"
-                colSpan="3"
-              >15~18</th>
-              <th
-                className="text-center"
-                colSpan="3"
-              >18~21</th>
-              <th
-                className="text-center"
-                colSpan="3"
-              >21~0</th>
-            </tr>
-          </thead>
-          <Week week={this.props.store.week}/>
-        </table>
-        <div className="text-right">
-          <button
-            className="btn btn-success"
-            type="submit">
-            Save
+        <div className="table-responsive">
+          <table className="table table-bordered" style={{
+            tableLayout: 'fixed'}}>
+            <thead>
+              <tr>
+                <th
+                  className="text-center"
+                  colSpan="3"
+                ></th>
+                <th
+                  className="text-center"
+                  colSpan="2"
+                >-8</th>
+                <th
+                  className="text-center"
+                  colSpan="5"
+                >8~13</th>
+                <th
+                  className="text-center"
+                  colSpan="4"
+                >13~17</th>
+                <th
+                  className="text-center"
+                  colSpan="5"
+                >17~22</th>
+                <th
+                  className="text-center"
+                  colSpan="2"
+                >22-</th>
+              </tr>
+            </thead>
+            <Week week={this.props.store.week} />
+          </table>
+          <div className="text-right">
+            <button
+              className="btn btn-success"
+              type="submit">
+              Save
           </button>
+          </div>
         </div>
       </form>
     );
