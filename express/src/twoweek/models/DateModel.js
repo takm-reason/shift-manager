@@ -6,6 +6,7 @@ export default class DateModel {
   @observable date = {};
   @observable text; // 日付の数値
   @observable yasumi = false; // 休み
+  @observable color = '#ffffff';
 
   @action
   onCheckDate(planid, plandate) {
@@ -17,5 +18,8 @@ export default class DateModel {
   constructor(date) {
     this.date = date;
     this.text = date.getDate();
+    if (this.text == new Date().getDate()) {
+      this.color = '#ffff00';
+    }
   }
 }

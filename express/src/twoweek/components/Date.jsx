@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {observer} from 'mobx-react';
 
 const Date = observer(({date}) => (
-  <td className="text-muted p-1">{date.text}
+  <td className="text-muted p-1" style={{
+    backgroundColor: date.color,
+  }}>{date.text}
       {
         date.yasumi
         ? <div className="text-center">休</div>
