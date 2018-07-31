@@ -27,12 +27,6 @@ const Line = observer(({date}) => (
     <td className='p-0'></td>
     <td className='p-0'></td>
     <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
   </tr>
 ));
 

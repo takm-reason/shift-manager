@@ -40,14 +40,6 @@ class ShiftForm extends React.Component {
                 className="text-center"
                 colSpan="3"
               >21~0</th>
-              <th
-                className="text-center"
-                colSpan="3"
-              >0~3</th>
-              <th
-                className="text-center"
-                colSpan="3"
-              >3~6</th>
             </tr>
           </thead>
           <Week week={this.props.store.week}/>

@@ -11,12 +11,10 @@ export default class ShiftFormModel {
 
   @action
   setDataUsers(userid, username) {
-    console.log(userid);
   };
 
   @action
   setDataPlans(planid, userid) {
-    console.log(planid);
   };
 
   constructor() {
