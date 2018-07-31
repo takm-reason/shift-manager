@@ -9,9 +9,6 @@ export default class DateModel {
 
   @action
   onCheckDate(planid, plandate) {
-    console.log(plandate);
-    console.log(new Date(plandate).getTime());
-    console.log(this.date.getTime());
     if (new Date(plandate).getTime() == this.date.getTime()) {
       this.yasumi = true;
     }
