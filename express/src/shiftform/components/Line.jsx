@@ -9,24 +9,24 @@ const Line = observer(({date}) => (
     >
       {date.date.getDate()}日
     </td>
+    <td className='p-0' style={{backgroundColor: '#eeeeee'}}></td>
+    <td className='p-0' style={{backgroundColor: '#eeeeee'}}></td>
     <td className='p-0'></td>
     <td className='p-0'></td>
     <td className='p-0'></td>
     <td className='p-0'></td>
     <td className='p-0'></td>
+    <td className='p-0' style={{backgroundColor: '#eeeeee'}}></td>
+    <td className='p-0' style={{backgroundColor: '#eeeeee'}}></td>
+    <td className='p-0' style={{backgroundColor: '#eeeeee'}}></td>
+    <td className='p-0' style={{backgroundColor: '#eeeeee'}}></td>
     <td className='p-0'></td>
     <td className='p-0'></td>
     <td className='p-0'></td>
     <td className='p-0'></td>
     <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
-    <td className='p-0'></td>
+    <td className='p-0' style={{backgroundColor: '#eeeeee'}}></td>
+    <td className='p-0' style={{backgroundColor: '#eeeeee'}}></td>
   </tr>
 ));
 
